@@ -1,6 +1,13 @@
+import random
 import time
 
+start = time.time()
+
 my_list = [5, 2, 4, 3, 1]
+sorted_list = [1, 2, 3, 4, 5]
+reversed_list = [5, 4, 3, 2, 1]
+
+random_list = [random.randint(1,100) for i in range(100)]
 
 def bubble_sort(data):
     print('bubble_sort')
@@ -18,5 +25,10 @@ def bubble_sort(data):
     print('Sorted: {}'.format(data))
     print('Passes: {} - Comparisons: {} - Swaps: {}'.format(passes, comparisons, swaps))
 
-bubble_sort(my_list)
+
+bubble_sort(random_list)
+
+stop = time.time()
+timedTaken = stop - start
+print(f'It took {timed}')
 
