@@ -1,3 +1,5 @@
+import time
+
 my_list = [5, 2, 4, 3, 1]
 
 def bubble_sort(data):
