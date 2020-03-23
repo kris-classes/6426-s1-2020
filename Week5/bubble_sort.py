@@ -11,6 +11,7 @@ one_hundred_items = [random.randint(1,100) for i in range(100)]
 one_thousand_items = [random.randint(1,100) for i in range(1000)]
 ten_thousand_items = [random.randint(1,100) for i in range(10000)]
 one_hundred_thousand_items = [random.randint(1,100) for i in range(100000)]
+one_million_items = [random.randint(1,100) for i in range(1000000)]
 
 def bubble_sort(data):
     start = time.time()
@@ -36,3 +37,38 @@ bubble_sort(ten_items)
 bubble_sort(one_hundred_items)
 bubble_sort(one_thousand_items)
 bubble_sort(ten_thousand_items)
+
+start = time.time()
+my_list = sorted(ten_items)
+stop = time.time()
+print('TimSort: time taken for 10 items: {}'.format(stop - start))
+
+start = time.time()
+my_list = sorted(one_hundred_items)
+print('TimSort: time taken for 100 items: {}'.format(stop - start))
+stop = time.time()
+
+start = time.time()
+my_list = sorted(one_thousand_items)
+stop = time.time()
+print('TimSort: time taken for 1000 items: {}'.format(stop - start))
+
+start = time.time()
+my_list = sorted(ten_thousand_items)
+stop = time.time()
+print('TimSort: time taken for 10000 items using sorted(): {}'.format(stop - start))
+
+start = time.time()
+my_list = ten_thousand_items.sort()
+stop = time.time()
+print('TimSort: time taken for 10000 items using list.sort(): {}'.format(stop - start))
+
+start = time.time()
+my_list = sorted(one_million_items)
+stop = time.time()
+print('TimSort: time taken for 1 million items using sorted(): {}'.format(stop - start))
+
+start = time.time()
+my_list = one_million_items.sort()
+stop = time.time()
+print('TimSort: time taken for 1 million items using list.sort(): {}'.format(stop - start))
