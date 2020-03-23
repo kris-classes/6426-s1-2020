@@ -95,3 +95,6 @@ def binary_search(some_sorted_list, number):
 small_list.sort()
 binary_search(small_list, 7)
 
+#for i in range(1000):
+#    random_list = [random.randint(1, 1000000) for i in range(1000000)]
+#    linear_search(random_list, 532325)
