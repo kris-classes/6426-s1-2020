@@ -35,3 +35,4 @@ def bubble_sort(data):
 bubble_sort(ten_items)
 bubble_sort(one_hundred_items)
 bubble_sort(one_thousand_items)
+bubble_sort(ten_thousand_items)
