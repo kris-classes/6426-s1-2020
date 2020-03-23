@@ -2,4 +2,4 @@
 6426 Data Structures and Algorithms
 Reuben
 
-Somone delted my name- Mohamed
+Somone deleted my name- Mohamed
