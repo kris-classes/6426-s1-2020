@@ -1,6 +1,6 @@
 import random
 
-random_list = [random.randint(1, 1000) for i in range(1000)]
+random_list = [random.randint(1, 1000000) for i in range(1000000)]
 
 
 def my_search(some_list, number):
@@ -16,4 +16,8 @@ def my_search(some_list, number):
     else:
         print('Found {} at index: {}'.format(number, i))
 
-my_search(random_list, 532)
+my_search(random_list, 532325)
+
+#for i in range(1000):
+#    random_list = [random.randint(1, 1000000) for i in range(1000000)]
+#    my_search(random_list, 532325)
