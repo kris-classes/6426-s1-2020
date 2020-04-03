@@ -1,5 +1,5 @@
 # ISCG 6426 Lab 1 Semester 1 2020.
-## Kris Pritchard
+## by Kris Pritchard
 
 Lab1: Implement the data structures to make all the tests pass.
 
