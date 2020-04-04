@@ -20,7 +20,7 @@ import unittest
 import pytest
 from pyexpect import expect
 from Lab1 import *  # Don't import * in your job. It's ok for assignments.
-from Lab1_answers import *
+#from Lab1_answers import *
 
 
 def test_list():
