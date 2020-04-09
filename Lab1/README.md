@@ -3,13 +3,14 @@
 
 ISCG6426 Lab1 Semester 1 2020. Code by Kris Pritchard / @krisrp
 Implement the following:
-    - ex1: A recursion base case.
-    - ex2: Stack class and Stack Exceptions
-    - ex3: Queue class and Queue Exceptions
-    - ex4: Tuple class and Tuple Exceptions
-    - ex5: Dictionary class and Dictionary Exceptions (Technically just the interface for now, but illustrative)
-    - ex6: Set class and Set Exceptions
-    - ex7: PriorityQueue class and import the Queue Exceptions from exercise 3.
+
+* ex1: A recursion base case.
+* ex2: Stack class and Stack Exceptions
+* ex3: Queue class and Queue Exceptions
+* ex4: Tuple class and Tuple Exceptions
+* ex5: Dictionary class and Dictionary Exceptions (Technically just the interface for now, but illustrative)
+* ex6: Set class and Set Exceptions
+* ex7: PriorityQueue class and import the Queue Exceptions from exercise 3.
 
 
 ex0_list_example has been implemented to show how to do it.
