@@ -1,3 +1,26 @@
+"""
+DO NOT MODIFY THIS FILE.
+
+ISCG6426 Lab 1 Semester 1 2020 by Kris Pritchard / @krisrp
+
+Tests used to check correctness of Lab1 answers.
+This file requires 'pytest' and 'pyexpect' to run.
+Install them with the following command:
+    pip install pytest pyexpect
+
+Then run the file with:
+    pytest -xv ex2_stack_tests.py
+
+You need to implement this code so that all of the tests pass.
+Feel free to comment out specific tests, but only submit your answers files.
+When checking your answers I will use the test files from this repository.
+
+
+Stack (LIFO):
+    For this introductory lab you need to implement functionality for a basic stack data structure.
+    Performance doesn't matter for this.
+    None of the method implementations require more than 4 lines of code.
+"""
 
 
 # IMPLEMENT a StackException.
