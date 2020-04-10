@@ -33,12 +33,27 @@ git clone https://github.com/kris-classes/6426
 pip install -r requirements.txt
 ```
 
-### Step 3 - Run each of the tests.
+### Step 3 - Running the tests.
 
 
 NOTE: **CONTACT ME IF THIS DOES NOT WORK FOR YOU OR IF ANY TESTS DON'T PASS**
 ```shell
-pytest -xv ex00_list_example_tests.py  # Runs the list example I created
+# Example with Lists
+pytest -xv ex0_list_example_tests.py
+# Recursion
+python ex1_recursion_tests.py
+# Stack
+pytest -xv ex2_stack_tests.py
+# Queue
+pytest -xv ex3_queue_tests.py
+# Tuple
+pytest -xv ex4_tuple_tests.py
+# Dictionary
+pytest -xv ex5_dictionary_tests.py
+# Set
+pytest -xv ex6_set_tests.py
+# PriorityQueue
+pytest -xv ex7_priorityqueue_tests.py
 ```
 
 ### Step 4 - Make the data structures work.
