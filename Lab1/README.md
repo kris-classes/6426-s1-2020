@@ -41,7 +41,7 @@ NOTE: **CONTACT ME IF THIS DOES NOT WORK FOR YOU OR IF ANY TESTS DON'T PASS**
 # Example with Lists
 pytest -xv ex0_list_example_tests.py
 # Recursion
-python ex1_recursion_tests.py
+python ex1_recursion_tests.py  # NOTE: This example just uses python, not pytest.
 # Stack
 pytest -xv ex2_stack_tests.py
 # Queue
