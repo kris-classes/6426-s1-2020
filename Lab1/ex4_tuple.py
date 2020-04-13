@@ -1,6 +1,4 @@
 """
-DO NOT MODIFY THIS FILE.
-
 ISCG6426 Lab 1 Semester 1 2020 by Kris Pritchard / @krisrp
 
 Tests used to check correctness of Lab1 answers.
