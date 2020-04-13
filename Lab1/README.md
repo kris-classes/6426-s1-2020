@@ -60,6 +60,18 @@ pytest -xv ex7_priorityqueue_tests.py
 
 Fix each of the tests one by one.
 
+The files you need to fix are:
+* ex1_recursion.py
+* ex2_stack.py
+* ex3_queue.py
+* ex4_tuple.py
+* ex5_dictionary.py
+* ex6_set.py
+* ex7_priorityqueue.py
+
+Create copies of them and upload them to a private DSA_Labs repository you
+create. Add me (@krisrp) as a collaborator to the repository.
+
 ``` shell
 pytest -xv ex2_stack_tests.py  # Runs the Stack tests.
 ```
@@ -69,7 +81,7 @@ Here you will get
 AssertionError: Expect 'Stack __str__(): FIX ME' to equal '<Stack __str__: []>'
 ```
 
-Fix the Stack.__str__ method so that the test passes.
+Fix the Stack.__str__ method in ex2_stack.py so that the test passes.
 Commit your fixed code to GitHub.
 
 Now fix the __repr__ method.
