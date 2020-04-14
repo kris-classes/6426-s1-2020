@@ -69,7 +69,7 @@ class Stack:
 
     def push(self, item):
         # Push an item onto the stack. Raise a StackIsFullException if the stack exceeds maxsize.
-        # NOTE: Use self.is_full() which you implemented earlier.
+        # NOTE: Use self.is_full which you implemented earlier.
         print('Stack push(). FIX ME')
 
     def peek(self):
