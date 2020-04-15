@@ -8,6 +8,7 @@
 * [ankitmatey](https://github.com/ankitmatey)
 * [avantikakarki24](https://github.com/avantikakarki24)
 * [chaosay](https://github.com/chaosay)
+* [joswindgr8](https://github.com/joswindgr8)
 * [kamho99](https://github.com/kamho99)
 * [Muzz00](https://github.com/Muzz00)
 * [OnishaX](https://github.com/OnishaX)
