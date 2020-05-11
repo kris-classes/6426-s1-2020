@@ -80,6 +80,6 @@ class Stack:
 
     def pop(self):
         # Pop an item off the stack. Raise a StackIsEmptyException if the stack is empty.
-        # NOTE: Use self.is_empty() which you implemented earlier.
+        # NOTE: Use self.is_empty which you implemented earlier.
         return 'Stack pop(). FIX ME'
 
