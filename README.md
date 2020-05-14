@@ -1,9 +1,7 @@
 # 6426 - Data Structures and Algorithms
 
 
-## Assignment
-
-### Choose a data structure / algorithm and create a visualization for it using Pyxel
+## Assignment - Choose a data structure / algorithm and create a visualization for it using Pyxel
 
 * [alaran01](https://github.com/alaran01) - Depth First Search (Preorder, Inorder, Postorder Traversal)
 * [ankitmatey](https://github.com/ankitmatey)
