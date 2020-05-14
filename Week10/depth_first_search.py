@@ -4,6 +4,7 @@ Depth-First Search
 https://en.wikipedia.org/wiki/Depth-first_search
 
 This is just a simple academic example to help with understanding.
+NOTE: It's incomplete as we're not handling Pre/In/Post order.
 
 ISCG 6426 Data Structures & Algorithms S1 2020
 Kris Pritchard / @krisrp
