@@ -3,18 +3,18 @@
 
 ## Assignment - Choose a data structure / algorithm and create a visualization for it using Pyxel
 
-* [alaran01](https://github.com/alaran01) - Depth First Search (Preorder, Inorder, Postorder Traversal)
+* [alaran01](https://github.com/alaran01) - Depth First Search (Preorder, Inorder, Postorder Traversal) - https://en.wikipedia.org/wiki/Tree_traversal
 * [ankitmatey](https://github.com/ankitmatey)
 * [avantikakarki24](https://github.com/avantikakarki24)
 * [chaosay](https://github.com/chaosay)
 * [joswindgr8](https://github.com/joswindgr8)
 * [kamho99](https://github.com/kamho99)
-* [Muzz00](https://github.com/Muzz00) - Breadth First Search
+* [Muzz00](https://github.com/Muzz00) - Breadth First Search - https://en.wikipedia.org/wiki/Breadth-first_search
 * [OnishaX](https://github.com/OnishaX)
-* [reusharino](https://github.com/reusharino)
+* [reusharino](https://github.com/reusharino) - L-System - https://en.wikipedia.org/wiki/L-system
 * [RKBKnight](https://github.com/RKBKnight)
 * [Yalikun](https://github.com/Yalikun)
-* [Yolanda](https://github.com/YolandaYUYAN) - Stack
+* [Yolanda](https://github.com/YolandaYUYAN) - Stack - https://en.wikipedia.org/wiki/Stack_(abstract_data_type)
 
 
 ### Week 7
