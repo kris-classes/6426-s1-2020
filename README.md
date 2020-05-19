@@ -6,7 +6,7 @@
 * [alaran01](https://github.com/alaran01) - Depth First Search (Preorder, Inorder, Postorder Traversal) - https://en.wikipedia.org/wiki/Tree_traversal
 * [ankitmatey](https://github.com/ankitmatey)
 * [avantikakarki24](https://github.com/avantikakarki24)
-* [chaosay](https://github.com/chaosay)
+* [chaosay](https://github.com/chaosay) - Selection sort - https://en.wikipedia.org/wiki/Selection_sort
 * [joswindgr8](https://github.com/joswindgr8)
 * [kamho99](https://github.com/kamho99)
 * [Muzz00](https://github.com/Muzz00) - Breadth First Search - https://en.wikipedia.org/wiki/Breadth-first_search
