@@ -19,7 +19,6 @@ class Item:
         pyxel.circb(self.x, self.y, 15, 7)#空心圆
         pyxel.rect(self.x-10, self.y-10, 20, 20, 13)
         pyxel.circ(self.x, self.y, 10, 10)#实心圆
-
         pyxel.text(self.x-1, self.y-2, self.value, 8)
 class Text:
     def __init__(self, x, y, value):
@@ -81,12 +80,16 @@ class App:
             pyxel.tri(point.x, point.y+5,point.x-10, point.y-10,point.x+10, point.y-10, point.color)
             pyxel.tri(point.x-10, point.y,point.x+10, point.y,point.x, point.y-15, point.color) #空
             #pyxel.text(point.x, point.y, f'Now is {self.color} color', self.color)# change
-            pyxel.text(point.x, point.y, f'Now is {self.stack} Number', self.color)## show the number of stack
+            pyxel.text(point.x, point.y, f'Now is {self.stack.size()} Number', self.color)## show the number of stack
 
     def draw(self):
         pyxel.cls(0)
         self.draw_points()
-        pyxel.text(30, 50, f'{self.stack}', 2)     #横排
+        if self.stack.size()<5:
+            pyxel.text(80, 50, f'{self.stack.range(1,5)}', 2)     #横排
+        else:
+            pyxel.text(80, 50, f'{self.stack.range(1, 5)}', 2)
+            pyxel.text(80, 80, f'{self.stack.range(5,10)}', 2)
         #pyxel.text(30, 70, f'this is {self.color} color', 2)
 
         #pyxel.rect(10, 20, 10, 10, 5)
@@ -95,12 +98,15 @@ class App:
         offset = 0
         for value in self.stack.list:
             myItem = Item(10, 10+offset, value)     #1
+            #pyxel.line(10, 10+offset, 10, 30, 5)
             pyxel.text(10, 30, 'This is the First number' 'Use push()', self.color)
             #myItem2 = Text(10, 20+offset, value)
             offset = offset + 20
             if offset > 20:
                 myItem = Item(10 + offset, 10, value) #2
+                pyxel.line(10, 10, 10, 40, 5)
                 pyxel.text(10, 40, 'This is the second number' 'Use push()', self.color)
+
                 if offset > 40:
                     myItem = Item(10, offset, value)    #3
                     if offset > 60:
@@ -121,12 +127,6 @@ class App:
 
             myItem.draw()
             #myItem2.draw()
-
-
-
-
-
-
 
 
 
@@ -157,12 +157,15 @@ class Stack(object):
 
     def size(self):
         """how many"""
+        #return self.stack.size()
         return len(self.list)
+
+    def range(self, start, end):
+        return self.list[start:end]
 
 
 if __name__ == "__main__":
     s = Stack()
-
     print(s.size())
 
     App()
