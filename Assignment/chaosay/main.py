@@ -16,13 +16,13 @@ Presets: (Num keys)
 3: Exploder
 4: Lightweight space ship
 5: Blinker
+Warning: It's possible to spawn multiple presets ontop of each other, which means they will vanish right away.
 ###############################
 Game rules/logic:
 1. Any live cell with fewer than two live neighbours dies, as if by underpopulation.
 2. Any live cell with two or three live neighbours lives on to the next generation.
 3. Any live cell with more than three live neighbours dies, as if by overpopulation.
 4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
-
 More simply:
 1. any live cell with two or three neighbors lives
 2. any dead cell with three live neighbors becomes a live cell
@@ -40,6 +40,7 @@ lastupdate = 0.0
 cellID = 0
 gameActive = False
 debug = False
+sim_frame_active = False
 sim_speed = 8
 
 # code used for anything
@@ -217,6 +218,7 @@ class App:
             global new_pixels
             global reviving_cells
             global dying_cells
+            global sim_frame_active
 
             # The following code handles all of the simulation logic. Referred to as a tick.
             if pyxel.frame_count%sim_speed == 1: # causes simulation to only update every x number of frames, otherwise it's too fast
