@@ -94,7 +94,7 @@ class App:
     def __init__(self):
         global alive_cells
         # create a glider on start
-        #alive_cells = [simCell(30,30), simCell(31,31), simCell(29,32), simCell(30,32), simCell(31,32)]  # x, y, alive
+        alive_cells = [simCell(25,25), simCell(26,26), simCell(24,27), simCell(25,27), simCell(26,27)]  # x, y, alive
         # Initialize a window. Max size is 256x256 pixels.
         pyxel.init(50, 50)
         self.x = 50
