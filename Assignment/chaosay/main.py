@@ -176,8 +176,8 @@ class App:
             alive_cells += spaceShip
 
         if pyxel.btnp(pyxel.KEY_5):  # blinker
-            startPosX = 50
-            startPosY = 20
+            startPosX = 40
+            startPosY = 45
             blinker = [simCell(startPosX, startPosY),  # row 1
                       simCell(startPosX, startPosY + 1),  # row 2
                       simCell(startPosX, startPosY + 2)]  # row 3
