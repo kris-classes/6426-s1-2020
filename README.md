@@ -7,7 +7,7 @@
 * [ankitmatey](https://github.com/ankitmatey)
 * [avantikakarki24](https://github.com/avantikakarki24)
 * [chaosay](https://github.com/chaosay) - Conway's Game Of Life - https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
-* [joswindgr8](https://github.com/joswindgr8)
+* [joswindgr8](https://github.com/joswindgr8) - Heap Sort - https://en.wikipedia.org/wiki/Heapsort
 * [kamho99](https://github.com/kamho99)
 * [Muzz00](https://github.com/Muzz00) - Breadth First Search - https://en.wikipedia.org/wiki/Breadth-first_search
 * [OnishaX](https://github.com/OnishaX)
