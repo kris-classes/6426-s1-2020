@@ -2,7 +2,7 @@ import turtle as tu
 
 foo = tu.Turtle()
 foo.left(90)
-foo.speed(10)
+foo.speed(10000)
 
 
 def draw(l, n):
@@ -19,8 +19,16 @@ def draw(l, n):
 
 
 d = int(input('Input number: '))
-j = int(input('input stop number: '))
 x = input('type y to draw: ')
 
-draw(d, j)
-input("")
+draw(d, 100)
+draw(d, 50)
+draw(d, 25)
+draw(d, 10)
+draw(d, 5)
+draw(d, 1)
+draw(d, 0.1)
+draw(d, 0.01)
+
+
+input("press enter to stop")
