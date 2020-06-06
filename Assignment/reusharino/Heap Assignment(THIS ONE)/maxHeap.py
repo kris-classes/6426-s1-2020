@@ -26,7 +26,7 @@ def buildHeap(arr, n):
 
 
 def printHeap(arr, n):
-    print("list representation of Heap is:")
+    print("list representation of Max Heap is:")
 
     for i in range(n):
         print(arr[i], end="\t")

@@ -1,6 +1,7 @@
 import heapq
 import random
 
+
 def randomList():
     listObj = [i for i in range(10)]
     random.shuffle(listObj)
@@ -24,7 +25,6 @@ if userDec == "i":
 elif userDec == "r":
     useList = randomList()
 
-
-print(useList)
+print(f"Initial list is:{useList}")
 heapq.heapify(useList)
-print(useList)
+print(f"list representation of Min Heap is:\n{useList}")
