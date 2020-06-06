@@ -20,10 +20,11 @@ def draw(l, n):
         # foo.clear()
 
 
+# d = int(input('Input number: '))
 
-d = int(input('Input number: '))
-x = input('type y to draw: ')
+# x = input('type y to draw: ')
 
+d = 100
 
 foo.setposition(-1000, 0)
 draw(d, 100)
