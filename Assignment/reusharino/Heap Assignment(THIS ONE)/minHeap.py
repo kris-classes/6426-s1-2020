@@ -3,7 +3,7 @@ import random
 
 
 def randomList():
-    listObj = [i for i in range(10)]
+    listObj = [i for i in range(11)]
     random.shuffle(listObj)
     return listObj
 
@@ -11,7 +11,7 @@ def randomList():
 def userInput():
     count = 0
     listObj = []
-    while count < 10:
+    while count < 11:
         n = int(input('Enter Number: '))
         listObj.append(n)
         count += 1
