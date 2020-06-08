@@ -7,6 +7,8 @@ Pyxel Discord: https://discord.gg/jNRYyXn
 More examples: https://github.com/kris-classes/pyxel-snippets
 """
 import pyxel
+import random
+import heapq
 
 
 # Create additional classes here if you want.
@@ -24,11 +26,10 @@ class SomeCircle:
         pyxel.circ(self.x, self.y, self.radius, self.color)
 
 
-
 class App:
     def __init__(self):
         # Initialize a window. Max size is 256x256 pixels.
-        pyxel.init(160, 120)
+        pyxel.init(256, 256)
 
         self.x = 50
         self.y = 50
@@ -39,11 +40,12 @@ class App:
         # Clear the screen with color 0 (black). Max color is 15.
         pyxel.cls(0)
 
+        pyxel.mouse(True)
+
         pyxel.run(self.update, self.draw)
 
-
     def update(self):
-        # Put your logic in here.
+
         if pyxel.btnp(pyxel.KEY_W):
             self.y -= 1
         if pyxel.btnp(pyxel.KEY_A):
@@ -52,7 +54,6 @@ class App:
             self.y += 1
         if pyxel.btnp(pyxel.KEY_D):
             self.x += 1
-
 
     def draw(self):
         # Always remember to clear the screen.
