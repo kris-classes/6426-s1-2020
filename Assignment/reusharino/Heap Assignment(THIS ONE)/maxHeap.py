@@ -2,20 +2,20 @@ import random
 
 
 def heapify(arr, n, i):
-    largest = i
+    biggest = i
     l = 2 * i + 1
     r = 2 * i + 2
 
-    if l < n and arr[l] > arr[largest]:
-        largest = l
+    if l < n and arr[l] > arr[biggest]:
+        biggest = l
 
-    if r < n and arr[r] > arr[largest]:
-        largest = r
+    if r < n and arr[r] > arr[biggest]:
+        biggest = r
 
-    if largest != i:
-        arr[i], arr[largest] = arr[largest], arr[i]
+    if biggest != i:
+        arr[i], arr[biggest] = arr[biggest], arr[i]
 
-        heapify(arr, n, largest)
+        heapify(arr, n, biggest)
 
 
 def buildHeap(arr, n):
@@ -35,7 +35,7 @@ def printHeap(arr, n):
 
 if True:
     def randomList():
-        listObj = [i for i in range(14)]
+        listObj = [i for i in range(15)]
         random.shuffle(listObj)
         return listObj
 
@@ -43,7 +43,7 @@ if True:
     def userInput():
         count = 0
         listObj = []
-        while count < 14:
+        while count < 15:
             n = int(input('Enter Number: '))
             listObj.append(n)
             count += 1
@@ -77,4 +77,4 @@ print("         / \\           / \\")
 print("        /   \\         /   \\")
 print(f"      ({useList[3]})   ({useList[4]})     ({useList[5]})  ({useList[6]})")
 print("      / \\   / \\     / \\    / \\")
-print(f"    ({useList[6]})({useList[7]}) ({useList[8]})({useList[9]}) ({useList[10]})({useList[11]}) ({useList[12]})({useList[13]})")
+print(f"    ({useList[7]})({useList[8]}) ({useList[9]})({useList[10]}) ({useList[11]})({useList[12]}) ({useList[13]})({useList[14]})")
