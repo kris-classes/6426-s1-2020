@@ -74,7 +74,8 @@ def draw():
     visited = []
     queue = []
     pyxel.cls(0)
-    pyxel.text(0, 5, "Press 1, 2 or 3 to switch Node", 15)
+    pyxel.text(0, 5, "Press 1, 2 or 3", 15)
+    pyxel.text(0, 15, "to switch Node", 15)
     node = nodeSelector #Option of User if not default
     #Default settings
     node.xCount = len(node.nodes)
@@ -132,8 +133,9 @@ def draw():
         for element in visited:
             pyxel.circ(element.x, element.y, 6, 12)
             pyxel.text(element.x - (len(element.data) * 1.5), element.y - 1, element.data, 2)
-
-    print(f'\nVisited Nodes {visited}')
+    pyxel.text(0, 125, 'Visited Nodes', 15)
+    pyxel.text(0, 135, str(visited), 15)
+    #print(f'\nVisited Nodes {visited}')
 
 
 pyxel.run(draw, update)
