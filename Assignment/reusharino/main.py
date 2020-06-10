@@ -34,14 +34,22 @@ def randomList():
 
 
 def minHeap(listObj):
-    heapObj = []
-    heapq.heapify(heapObj)
-    for i in range(len(listObj)):
-        heapq.heappush(heapObj, listObj[i])
-        # print(listObj[i])
+    def heapPush(listObj):
+        heapObj = []
         heapq.heapify(heapObj)
-        # print(heapObj)
-    return heapObj
+        for i in listObj:
+            heapq.heappush(heapObj, listObj[i])
+            # print(listObj[i])
+            heapq.heapify(heapObj)
+            # print(heapObj)
+        listObj = heapObj
+        return listObj
+
+    def heapIT(listObj):
+        heapPush(listObj)
+        heapq.heapify(listObj)
+        return listObj
+    heapIT(listObj)
 
 
 def maxHeap(listObj):
@@ -73,6 +81,12 @@ def maxHeap(listObj):
 
 
 LO = randomList()
+
+NL = []
+for i in LO:
+    NL.append(i)
+minHeap(LO)
+# maxHeap(LO)
 
 
 class App:
@@ -163,6 +177,7 @@ class App:
         if 164 > x > 184 and 158 < y < 178:
             maxHeap(LO)
             self.draw()
+            print("click")
 
     def draw(self):
         # Always remember to clear the screen.
@@ -238,16 +253,17 @@ class App:
 
     # Text and buttons
         pyxel.text(80, 200, "This is the initial list", 7)
-        pyxel.text(30, 210, str(LO), 7)
+        pyxel.text(30, 210, str(NL), 7)
 
-        self.minButton.draw()
-        pyxel.text(80, 150, "MAKE IT \n   A\nMIN HEAP", 7)
+        # self.minButton.draw()
+        # pyxel.text(80, 150, "THIS IS \n   A\nMIN HEAP", 7)
 
         self.maxButton.draw()
-        pyxel.text(150, 150, "MAKE IT \n   A\nMAX HEAP", 7)
+        pyxel.text(150, 150, "THIS IS \n   A\nMAX HEAP", 7)
 
         pyxel.text(10, 10, "HEAPS BRO", 7)
 
+        # print(LO)
         # print(minHeap(LO))
         # print(maxHeap(LO))
 
