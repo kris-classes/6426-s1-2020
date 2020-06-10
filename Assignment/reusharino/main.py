@@ -33,6 +33,44 @@ def randomList():
     return LO
 
 
+def minHeap(listObj):
+    heapObj = []
+    heapq.heapify(heapObj)
+    for i in range(len(listObj)):
+        heapq.heappush(heapObj, listObj[i])
+        # print(listObj[i])
+        heapq.heapify(heapObj)
+        # print(heapObj)
+    return heapObj
+
+
+def maxHeap(listObj):
+    def heapify(listObj, n, i):
+        biggest = i
+        l = 2 * i + 1
+        r = 2 * i + 2
+
+        if l < n and listObj[l] > listObj[biggest]:
+            biggest = l
+
+        if r < n and listObj[r] > listObj[biggest]:
+            biggest = r
+
+        if biggest != i:
+            listObj[i], listObj[biggest] = listObj[biggest], listObj[i]
+
+            heapify(listObj, n, biggest)
+
+    def buildHeap(listObj, n):
+        startIdx = n // 2 - 1
+
+        for i in range(startIdx, -1, -1):
+            heapify(listObj, n, i)
+
+    buildHeap(listObj)
+    return listObj
+
+
 LO = randomList()
 
 
@@ -45,6 +83,7 @@ class App:
         self.x = 10
         self.y = 10
         self.message = "HEAPS BRO"
+
         # co-ordinates
         p = 128, 50
 
@@ -69,30 +108,32 @@ class App:
         rrl = 178, 100
         rrr = 198, 100
         # parent
-        self.n1 = Circle(p[0], p[1], 7, LO[0]+1, LO[0])
-        pyxel.text(200, 100, "welcome", 2)
+        self.n1 = Circle(p[0], p[1], 7, LO[0] + 1, LO[0])
 
         # layer2
-        self.n2 = Circle(l[0], l[1], 7, LO[1]+1, LO[1])
-        self.n3 = Circle(r[0], r[1], 7, LO[2]+1, LO[2])
+        self.n2 = Circle(l[0], l[1], 7, LO[1] + 1, LO[1])
+        self.n3 = Circle(r[0], r[1], 7, LO[2] + 1, LO[2])
         # layer 3
-        self.n4 = Circle(ll[0], ll[1], 7, LO[3]+1, LO[3])
-        self.n5 = Circle(lr[0], lr[1], 7, LO[4]+1, LO[4])
+        self.n4 = Circle(ll[0], ll[1], 7, LO[3] + 1, LO[3])
+        self.n5 = Circle(lr[0], lr[1], 7, LO[4] + 1, LO[4])
 
-        self.n6 = Circle(rl[0], rl[1], 7, LO[5]+1, LO[5])
-        self.n7 = Circle(rr[0], rr[1], 7, LO[6]+1, LO[6])
+        self.n6 = Circle(rl[0], rl[1], 7, LO[5] + 1, LO[5])
+        self.n7 = Circle(rr[0], rr[1], 7, LO[6] + 1, LO[6])
         # layer 4
-        self.n8 = Circle(lll[0], lll[1], 7, LO[7]+1, LO[7])
-        self.n9 = Circle(llr[0], llr[1], 7, LO[8]+1, LO[8])
+        self.n8 = Circle(lll[0], lll[1], 7, LO[7] + 1, LO[7])
+        self.n9 = Circle(llr[0], llr[1], 7, LO[8] + 1, LO[8])
 
-        self.n10 = Circle(lrl[0], lrl[1], 7, LO[9]+1, LO[9])
-        self.n11 = Circle(lrr[0], lrr[1], 7, LO[10]+1, LO[10])
+        self.n10 = Circle(lrl[0], lrl[1], 7, LO[9] + 1, LO[9])
+        self.n11 = Circle(lrr[0], lrr[1], 7, LO[10] + 1, LO[10])
 
-        self.n12 = Circle(rll[0], rll[1], 7, LO[11]+1, LO[11])
-        self.n13 = Circle(rlr[0], rlr[1], 7, LO[12]+1, LO[12])
+        self.n12 = Circle(rll[0], rll[1], 7, LO[11] + 1, LO[11])
+        self.n13 = Circle(rlr[0], rlr[1], 7, LO[12] + 1, LO[12])
 
-        self.n14 = Circle(rrl[0], rrl[1], 7, LO[13]+1, LO[13])
-        self.n15 = Circle(rrr[0], rrr[1], 7, LO[14]+1, LO[14])
+        self.n14 = Circle(rrl[0], rrl[1], 7, LO[13] + 1, LO[13])
+        self.n15 = Circle(rrr[0], rrr[1], 7, LO[14] + 1, LO[14])
+
+        self.minButton = Circle(94, 158, 20, 8, 0)
+        self.maxButton = Circle(164, 158, 20, 8, 0)
 
         # Clear the screen with color 0 (black). Max color is 15.
         pyxel.cls(0)
@@ -102,7 +143,8 @@ class App:
         pyxel.run(self.update, self.draw)
 
     def update(self):
-
+        x = 0
+        y = 0
         if pyxel.btnp(pyxel.KEY_W):
             self.y -= 1
         if pyxel.btnp(pyxel.KEY_A):
@@ -111,6 +153,11 @@ class App:
             self.y += 1
         if pyxel.btnp(pyxel.KEY_D):
             self.x += 1
+        if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
+            x = pyxel.mouse_x
+            y = pyxel.mouse_y
+        if 94 > x > 114 and 158 < y < 178:
+            pass
 
     def draw(self):
         # Always remember to clear the screen.
@@ -188,6 +235,12 @@ class App:
 
         pyxel.text(80, 200, "This is the initial list", 7)
         pyxel.text(30, 210, str(LO), 7)
+
+        self.minButton.draw()
+        pyxel.text(80, 150, "MAKE IT \n   A\nMIN HEAP", 7)
+
+        self.maxButton.draw()
+        pyxel.text(150, 150, "MAKE IT \n   A\nMAX HEAP", 7)
 
 
 if __name__ == '__main__':
