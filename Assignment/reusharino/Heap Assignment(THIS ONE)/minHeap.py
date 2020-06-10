@@ -30,7 +30,7 @@ def buildHeap(listObj):
 
 
 def printHeap(arr, n):
-    print("List representation of Max Heap is:")
+    print("List representation of Min Heap is:")
 
     for i in range(n):
         print(arr[i], end="\t")
@@ -42,10 +42,41 @@ userDec = input("Type i for input or r for random: ")
 if userDec == "i":
     useList = userInput()
     print(f"Initial list is:{useList}\n")
+    print("\nTree representation of the list is:")
+
+    print(f"                ({useList[0]})")
+    print("              /    \\")
+    print("             /      \\")
+    print("            /        \\")
+    print("           /          \\")
+    print(f"         ({useList[1]})          ({useList[2]})")
+    print("         / \\          / \\")
+    print("        /   \\        /   \\")
+    print(f"      ({useList[3]})   ({useList[4]})    ({useList[5]})    ({useList[6]})")
+    print("      / \\   / \\    / \\    / \\")
+    print(f"   ({useList[7]})({useList[8]}) ({useList[9]})({useList[10]}) ({useList[11]})({useList[12]}) ({useList[13]})({useList[14]})")
+    print("\n")
+
     heapq.heapify(useList)
+
 elif userDec == "r":
     useList = randomList()
     print(f"Initial list is:{useList}\n")
+    print("\nTree representation of the list is:")
+
+    print(f"                ({useList[0]})")
+    print("              /    \\")
+    print("             /      \\")
+    print("            /        \\")
+    print("           /          \\")
+    print(f"         ({useList[1]})          ({useList[2]})")
+    print("         / \\          / \\")
+    print("        /   \\        /   \\")
+    print(f"      ({useList[3]})   ({useList[4]})    ({useList[5]})    ({useList[6]})")
+    print("      / \\   / \\    / \\    / \\")
+    print(
+        f"   ({useList[7]})({useList[8]}) ({useList[9]})({useList[10]}) ({useList[11]})({useList[12]}) ({useList[13]})({useList[14]})")
+    print("\n")
     useList = buildHeap(useList)
 
 n = len(useList)

@@ -67,7 +67,8 @@ def maxHeap(listObj):
         for i in range(startIdx, -1, -1):
             heapify(listObj, n, i)
 
-    buildHeap(listObj)
+    n = len(listObj)
+    buildHeap(listObj, n)
     return listObj
 
 
@@ -83,6 +84,7 @@ class App:
         self.x = 10
         self.y = 10
         self.message = "HEAPS BRO"
+        pyxel.mouse(True)
 
         # co-ordinates
         p = 128, 50
@@ -152,12 +154,15 @@ class App:
         if pyxel.btnp(pyxel.KEY_S):
             self.y += 1
         if pyxel.btnp(pyxel.KEY_D):
-            self.x += 1
+            # self.x += 1
+            minHeap(LO)
         if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
             x = pyxel.mouse_x
             y = pyxel.mouse_y
         if 94 > x > 114 and 158 < y < 178:
-            pass
+            minHeap(LO)
+        if 164 > x > 184 and 158 < y < 178:
+            maxHeap(LO)
 
     def draw(self):
         # Always remember to clear the screen.
@@ -241,6 +246,9 @@ class App:
 
         self.maxButton.draw()
         pyxel.text(150, 150, "MAKE IT \n   A\nMAX HEAP", 7)
+
+        # print(minHeap(LO))
+        # print(maxHeap(LO))
 
 
 if __name__ == '__main__':

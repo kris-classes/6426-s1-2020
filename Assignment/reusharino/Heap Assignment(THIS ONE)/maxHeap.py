@@ -55,9 +55,37 @@ if True:
     if userDec == "i":
         useList = userInput()
         print(f"Initial list is:{useList}\n")
+        print("Tree representation of the list is:")
+
+        print(f"               ({useList[0]})")
+        print("              /    \\")
+        print("             /      \\")
+        print("            /        \\")
+        print("           /          \\")
+        print(f"         ({useList[1]})         ({useList[2]})")
+        print("         / \\           / \\")
+        print("        /   \\         /   \\")
+        print(f"      ({useList[3]})   ({useList[4]})     ({useList[5]})  ({useList[6]})")
+        print("      / \\   / \\     / \\    / \\")
+        print(f"    ({useList[7]})({useList[8]}) ({useList[9]})({useList[10]}) ({useList[11]})({useList[12]}) ({useList[13]})({useList[14]})")
+        print("\n")
     elif userDec == "r":
         useList = randomList()
         print(f"Initial list is:{useList}\n")
+        print("Tree representation of the list is:")
+
+        print(f"               ({useList[0]})")
+        print("              /    \\")
+        print("             /      \\")
+        print("            /        \\")
+        print("           /          \\")
+        print(f"         ({useList[1]})         ({useList[2]})")
+        print("         / \\           / \\")
+        print("        /   \\         /   \\")
+        print(f"      ({useList[3]})   ({useList[4]})     ({useList[5]})  ({useList[6]})")
+        print("      / \\   / \\     / \\    / \\")
+        print(f"    ({useList[7]})({useList[8]}) ({useList[9]})({useList[10]}) ({useList[11]})({useList[12]}) ({useList[13]})({useList[14]})")
+        print("\n")
 
     n = len(useList)
 
