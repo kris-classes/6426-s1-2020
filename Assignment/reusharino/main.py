@@ -13,7 +13,7 @@ import heapq
 
 # Create additional classes here if you want.
 class Circle:
-    def __init__(self, x, y, radius=5, color=8, value=0):
+    def __init__(self, x, y, radius=5, color=0, value=0):
         self.x = x
         self.y = y
         self.radius = radius
@@ -83,7 +83,6 @@ class App:
 
         self.x = 10
         self.y = 10
-        self.message = "HEAPS BRO"
         pyxel.mouse(True)
 
         # co-ordinates
@@ -140,8 +139,6 @@ class App:
         # Clear the screen with color 0 (black). Max color is 15.
         pyxel.cls(0)
 
-        pyxel.mouse(True)
-
         pyxel.run(self.update, self.draw)
 
     def update(self):
@@ -154,21 +151,22 @@ class App:
         if pyxel.btnp(pyxel.KEY_S):
             self.y += 1
         if pyxel.btnp(pyxel.KEY_D):
-            # self.x += 1
+            self.x += 1
             minHeap(LO)
         if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
             x = pyxel.mouse_x
             y = pyxel.mouse_y
         if 94 > x > 114 and 158 < y < 178:
             minHeap(LO)
+            self.draw()
+            print("click")
         if 164 > x > 184 and 158 < y < 178:
             maxHeap(LO)
+            self.draw()
 
     def draw(self):
         # Always remember to clear the screen.
         pyxel.cls(0)
-
-        pyxel.text(self.x, self.y, self.message, 7)
 
         # Line Structure
         # Parent
@@ -219,25 +217,26 @@ class App:
         self.n14.draw()
         self.n15.draw()
 
-        pyxel.text(125.5, 48, str(LO[0]), 0)
+        pyxel.text(125, 48, str(LO[0]), 0)
 
-        pyxel.text(95.5, 58, str(LO[1]), 0)
-        pyxel.text(155.5, 58, str(LO[2]), 0)
+        pyxel.text(95, 58, str(LO[1]), 0)
+        pyxel.text(155, 58, str(LO[2]), 0)
 
-        pyxel.text(65.5, 78, str(LO[3]), 0)
-        pyxel.text(105.5, 78, str(LO[4]), 0)
-        pyxel.text(145.5, 78, str(LO[5]), 0)
-        pyxel.text(185.5, 78, str(LO[6]), 0)
+        pyxel.text(65, 78, str(LO[3]), 0)
+        pyxel.text(105, 78, str(LO[4]), 0)
+        pyxel.text(145, 78, str(LO[5]), 0)
+        pyxel.text(185, 78, str(LO[6]), 0)
 
-        pyxel.text(55.5, 98, str(LO[7]), 0)
-        pyxel.text(75.5, 98, str(LO[8]), 0)
-        pyxel.text(95.5, 98, str(LO[9]), 0)
-        pyxel.text(115.5, 98, str(LO[10]), 0)
-        pyxel.text(135.5, 98, str(LO[11]), 0)
-        pyxel.text(155.5, 98, str(LO[12]), 0)
-        pyxel.text(175.5, 98, str(LO[13]), 0)
-        pyxel.text(195.5, 98, str(LO[14]), 0)
+        pyxel.text(55, 98, str(LO[7]), 0)
+        pyxel.text(75, 98, str(LO[8]), 0)
+        pyxel.text(95, 98, str(LO[9]), 0)
+        pyxel.text(115, 98, str(LO[10]), 0)
+        pyxel.text(135, 98, str(LO[11]), 0)
+        pyxel.text(155, 98, str(LO[12]), 0)
+        pyxel.text(175, 98, str(LO[13]), 0)
+        pyxel.text(195, 98, str(LO[14]), 0)
 
+    # Text and buttons
         pyxel.text(80, 200, "This is the initial list", 7)
         pyxel.text(30, 210, str(LO), 7)
 
@@ -246,6 +245,8 @@ class App:
 
         self.maxButton.draw()
         pyxel.text(150, 150, "MAKE IT \n   A\nMAX HEAP", 7)
+
+        pyxel.text(10, 10, "HEAPS BRO", 7)
 
         # print(minHeap(LO))
         # print(maxHeap(LO))
