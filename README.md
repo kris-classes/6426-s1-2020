@@ -5,9 +5,9 @@
 
 * [alaran01](https://github.com/alaran01) - Depth First Search (Preorder, Inorder, Postorder Traversal) - https://en.wikipedia.org/wiki/Tree_traversal
 * [ankitmatey](https://github.com/ankitmatey)
-* [avantikakarki24](https://github.com/avantikakarki24)
-* [chaosay](https://github.com/chaosay) - Selection sort - https://en.wikipedia.org/wiki/Selection_sort
-* [joswindgr8](https://github.com/joswindgr8)
+* [avantikakarki24](https://github.com/avantikakarki24) - Queue - https://en.wikipedia.org/wiki/Queue_(abstract_data_type)
+* [chaosay](https://github.com/chaosay) - Conway's Game Of Life - https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
+* [joswindgr8](https://github.com/joswindgr8) - Heap Sort - https://en.wikipedia.org/wiki/Heapsort
 * [kamho99](https://github.com/kamho99)
 * [Muzz00](https://github.com/Muzz00) - Breadth First Search - https://en.wikipedia.org/wiki/Breadth-first_search
 * [OnishaX](https://github.com/OnishaX)
