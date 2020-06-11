@@ -106,8 +106,18 @@ class Stack(object):
         self.maxsize = maxsize
         self.stack = []
 
+    def if_Full(self):
+        if len(self.stack) == self.maxsize:
+            return True
+        else:
+            return False
+
     def push(self, item):
-        self.stack.append(item)
+        if self.if_Full():
+            print('stack is full')
+        else:
+            self.stack.append(item)
+
 
     def pop(self):
         return self.stack.pop()
