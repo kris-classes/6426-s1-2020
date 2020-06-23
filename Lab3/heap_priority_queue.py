@@ -13,6 +13,7 @@ import heapq
 #
 # QueueException which inherits from Exception class
 # QueueIsFullException which inherits from QueueException class
+# QueueIsEmptyException which inherits from QueueException class
 
 # TODO: Remember to periodically run pylint on your code
 # pylint heap_priority_queue.py
