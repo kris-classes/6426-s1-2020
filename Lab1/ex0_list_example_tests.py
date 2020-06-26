@@ -159,7 +159,7 @@ def test_pop_method_on_empty_list_raises_listisemptyexception():
 
     # Test that my_list.pop() on empty list raises ListIndexException
     with pytest.raises(ListIsEmptyException):
-        my_list.pop()
+        my_list.pop
 
 
 def test_pop_method_on_list_with_data():
@@ -170,9 +170,9 @@ def test_pop_method_on_list_with_data():
     my_list.data = [1, 2, 3, 4]
 
     # Test pop method.
-    expect(my_list.pop()) == 4
-    expect(my_list.pop()) == 3
-    expect(my_list.pop()) == 2
+    expect(my_list.pop) == 4
+    expect(my_list.pop) == 3
+    expect(my_list.pop) == 2
 
 
 def test_insert_method_on_list():
