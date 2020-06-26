@@ -64,11 +64,11 @@ def test_list():
     expect(my_list[3]) == 42
 
     # Test pop method.
-    expect(my_list.pop) == 42
-    expect(my_list.pop) == 3
-    expect(my_list.pop) == 2
-    expect(my_list.pop) == 123
-    expect(lambda: my_list.pop).raises(ListIsEmptyException)
+    expect(my_list.pop()) == 42
+    expect(my_list.pop()) == 3
+    expect(my_list.pop()) == 2
+    expect(my_list.pop()) == 123
+    expect(lambda: my_list.pop()).raises(ListIsEmptyException)
 
     # Test insert method.
     my_list2.insert(1, 100)
@@ -139,11 +139,11 @@ def test_stack():
 
     # Test pop method on regular stack.
     item = my_stack.peek()
-    expect(my_stack.pop) == 4
+    expect(my_stack.pop()) == 4
 
     # Test pop method on empty stack raises StackIsEmptyException.
     with pytest.raises(StackIsEmptyException):
-        empty_stack.pop
+        empty_stack.pop()
 
 
 def test_queue():

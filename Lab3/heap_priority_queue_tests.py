@@ -252,4 +252,4 @@ def test_pop_on_queue_with_name_data_removes_items(priority_queue_with_name_data
 
 def test_pop_on_empty_priority_queue_raises_queueisemptyexception(empty_priority_queue):
     with pytest.raises(QueueIsEmptyException):
-        empty_priority_queue.pop
+        empty_priority_queue.pop()
