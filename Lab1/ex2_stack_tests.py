@@ -198,7 +198,7 @@ Test pop
 def test_pop_method_on_empty_stack_raises_stackisemptyexception(empty_stack):
     # Test pop method on empty stack raises StackIsEmptyException.
     with pytest.raises(StackIsEmptyException):
-        empty_stack.pop()
+        empty_stack.pop
 
 
 def test_pop_method_on_stack_with_data_returns_correct_item_and_removes_it_from_stack(my_stack):
@@ -209,7 +209,7 @@ def test_pop_method_on_stack_with_data_returns_correct_item_and_removes_it_from_
     my_stack.push(random_item)
 
     # Check that pop() returns random_item from the top of the stack.
-    expect(my_stack.pop()) == random_item
+    expect(my_stack.pop) == random_item
 
     # Check that the item has been removed from the stack.
     expect(my_stack.peek()) != random_item

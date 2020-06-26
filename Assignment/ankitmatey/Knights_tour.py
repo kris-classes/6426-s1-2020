@@ -101,7 +101,7 @@ class KnightsTour:
             #If we exit this loop, all neighbours failed so we reset
             self.board[to_visit[0]][to_visit[1]] = 0
             try:
-                path.pop()
+                path.pop
                 print ("Going back to: ", path[-1])
             except IndexError:
                 print ("No path found")
