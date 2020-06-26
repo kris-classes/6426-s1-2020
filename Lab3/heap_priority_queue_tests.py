@@ -212,13 +212,13 @@ def test_pop_on_queue_with_number_data_removes_items(priority_queue_with_number_
     priority_queue_with_number_data.push(random.randint(100, 200))
 
     expect(priority_queue_with_number_data.size) == pq_length + 1
-    expect(priority_queue_with_number_data.pop) == pq_data[0]
+    expect(priority_queue_with_number_data.pop()) == pq_data[0]
     expect(priority_queue_with_number_data.size) == pq_length
-    expect(priority_queue_with_number_data.pop) == pq_data[1]
+    expect(priority_queue_with_number_data.pop()) == pq_data[1]
     expect(priority_queue_with_number_data.size) == pq_length - 1
-    expect(priority_queue_with_number_data.pop) == pq_data[2]
+    expect(priority_queue_with_number_data.pop()) == pq_data[2]
     expect(priority_queue_with_number_data.size) == pq_length - 2
-    expect(priority_queue_with_number_data.pop) == pq_data[3]
+    expect(priority_queue_with_number_data.pop()) == pq_data[3]
     expect(priority_queue_with_number_data.size) == pq_length -3
 
 
@@ -235,21 +235,21 @@ def test_pop_on_queue_with_name_data_removes_items(priority_queue_with_name_data
     priority_queue_with_name_data.push(high_priority_name)
     expect(priority_queue_with_name_data.size) == pq_length + 2
 
-    expect(priority_queue_with_name_data.pop) == high_priority_name
+    expect(priority_queue_with_name_data.pop()) == high_priority_name
     expect(priority_queue_with_name_data.size) == pq_length + 1
 
-    expect(priority_queue_with_name_data.pop) == pq_data[0]
+    expect(priority_queue_with_name_data.pop()) == pq_data[0]
     expect(priority_queue_with_name_data.size) == pq_length
 
-    expect(priority_queue_with_name_data.pop) == pq_data[1]
+    expect(priority_queue_with_name_data.pop()) == pq_data[1]
     expect(priority_queue_with_name_data.size) == pq_length - 1
 
-    expect(priority_queue_with_name_data.pop) == pq_data[2]
+    expect(priority_queue_with_name_data.pop()) == pq_data[2]
     expect(priority_queue_with_name_data.size) == pq_length - 2
 
-    expect(priority_queue_with_name_data.pop) == pq_data[3]
+    expect(priority_queue_with_name_data.pop()) == pq_data[3]
     expect(priority_queue_with_name_data.size) == pq_length - 3
 
 def test_pop_on_empty_priority_queue_raises_queueisemptyexception(empty_priority_queue):
     with pytest.raises(QueueIsEmptyException):
-        empty_priority_queue.pop
+        empty_priority_queue.pop()
