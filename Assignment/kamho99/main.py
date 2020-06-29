@@ -33,20 +33,22 @@ class App:
         pyxel.run(self.update, self.draw)
 
     def check_click(self,mouse_x,mouse_y):
+        """check for mouse click"""
         text_x = 55
         text_y = 45
-        # check for number clicked
-        if  text_x < mouse_x < text_x + 100 and text_y < mouse_y < text_y + 10:
+        if text_x < mouse_x < text_x + 100 and text_y < mouse_y < text_y + 10:
             search_for = (pyxel.mouse_x - 55) // 10
             return search_for
 
     def update(self):
+        """check any button click"""
         if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
             App.check_click(self,pyxel.mouse_x, pyxel.mouse_y)
         if pyxel.btnp(pyxel.KEY_ESCAPE):
             pyxel.quit()
 
     def draw(self):
+        """draw the items on screen"""
         pyxel.cls(0)
         pyxel.text(165, 10, "press esc to quit", 6)
         pyxel.text(55, 35,"choose a number to search from list", 5)
