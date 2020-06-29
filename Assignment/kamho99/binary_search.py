@@ -40,6 +40,7 @@ def search(current_list, search_for, position_in_list):
         print('search for number:{}'.format(search_for))
         print('found!')
         print('your number is found at index {} of the list'.format(position_in_list))
+        return
 
 
     if search_for != mid_var and len(search_from_list) > 0:
