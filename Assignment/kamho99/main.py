@@ -7,10 +7,9 @@ Pyxel Discord: https://discord.gg/jNRYyXn
 More examples: https://github.com/kris-classes/pyxel-snippets
 """
 import pyxel
+import random
 
-
-# Create additional classes here if you want.
-class SomeCircle:
+class Arrow:
     def __init__(self, x, y, radius=5, color=8):
         self.x = x
         self.y = y
@@ -23,44 +22,51 @@ class SomeCircle:
     def draw(self):
         pyxel.circ(self.x, self.y, self.radius, self.color)
 
-
+random_list = [random.randint(0, 9) for i in range(10)]
+random_list.sort()
 
 class App:
     def __init__(self):
-        # Initialize a window. Max size is 256x256 pixels.
-        pyxel.init(160, 120)
-
-        self.x = 50
-        self.y = 50
-        self.message = "ISCG 6426"
-        self.circle1 = SomeCircle(100, 100, 5, 8)
-        self.circle2 = SomeCircle(100, 25, 10, 12)
-
-        # Clear the screen with color 0 (black). Max color is 15.
+        pyxel.init(240, 200, caption = "Binary Search visualization")
+        pyxel.mouse(True)
         pyxel.cls(0)
-
         pyxel.run(self.update, self.draw)
 
+    def check_click(self,mouse_x,mouse_y):
+        text_x = 55
+        text_y = 45
+        # check for number clicked
+        if  text_x < mouse_x < text_x + 100 and text_y < mouse_y < text_y + 10:
+            search_for = (pyxel.mouse_x - 55) // 10
+            return search_for
 
     def update(self):
-        # Put your logic in here.
-        if pyxel.btnp(pyxel.KEY_W):
-            self.y -= 1
-        if pyxel.btnp(pyxel.KEY_A):
-            self.x -= 1
-        if pyxel.btnp(pyxel.KEY_S):
-            self.y += 1
-        if pyxel.btnp(pyxel.KEY_D):
-            self.x += 1
-
+        if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
+            App.check_click(self,pyxel.mouse_x, pyxel.mouse_y)
+        if pyxel.btnp(pyxel.KEY_ESCAPE):
+            pyxel.quit()
 
     def draw(self):
-        # Always remember to clear the screen.
         pyxel.cls(0)
+        pyxel.text(165, 10, "press esc to quit", 6)
+        pyxel.text(55, 35,"choose a number to search from list", 5)
+        for i in range(10):
+            text_x = 60 + 10 * i
+            text_y = 50
+            if text_x - 5 < pyxel.mouse_x < text_x + 5 and text_y -5 < pyxel.mouse_y < text_y + 5:
+                text_col = 6
+            else:
+                text_col = 5
+            pyxel.text(text_x, text_y, str(i), text_col)
+            pyxel.rectb(text_x-3, text_y-3, 10, 10, text_col)
+            pyxel.text(60, 80, str(App.check_click), 7)
 
-        pyxel.text(self.x, self.y, self.message, 7)
-        self.circle1.draw()
-        self.circle2.draw()
+        list_x = 50
+        list_y = 130
+        for i in range(len(random_list)): # draw the list
+            pyxel.text(list_x + 15 * i, list_y, str(random_list[i]), 7)
+            pyxel.rectb(list_x - 3 + 15 * i, list_y - 3, 10, 10, 7)
+        pyxel.text(10, 10, "Binary Search", 7)
 
 
 if __name__ == '__main__':
