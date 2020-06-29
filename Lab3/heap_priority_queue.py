@@ -112,4 +112,6 @@ class PriorityQueue:
         if self.is_empty():
             raise QueueIsEmptyException("queue is empty")
         else:
-            return self.queue.pop(0)
+            self.queue.pop(self.queue[0])
+
+
