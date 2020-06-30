@@ -17,6 +17,7 @@ def search_the_list(the_list):
 
 def search(current_list, search_for, position_in_list):
     """check if the searching value is higher or lower than the mid point"""
+
     midpoint_index = len(current_list) // 2
     mid_var = current_list[midpoint_index]
 

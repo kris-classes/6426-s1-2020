@@ -13,7 +13,7 @@
 * [OnishaX](https://github.com/OnishaX)
 * [reusharino](https://github.com/reusharino) - L-System - https://en.wikipedia.org/wiki/L-system
 * [RKBKnight](https://github.com/RKBKnight)
-* [Yalikun](https://github.com/Yalikun)       - Fibonacci Heap -  https://en.wikipedia.org/wiki/Fibonacci_heap#:~:text=In%20computer%20science%2C%20a%20Fibonacci,binary%20heap%20and%20binomial%20heap.
+* [Yalikun](https://github.com/Yalikun)       - Fibonacci Heap -  https://en.wikipedia.org/wiki/Fibonacci_heap
 * [Yolanda](https://github.com/YolandaYUYAN) - Stack - https://en.wikipedia.org/wiki/Stack_(abstract_data_type)
 
 
