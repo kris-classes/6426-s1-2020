@@ -9,32 +9,57 @@ More examples: https://github.com/kris-classes/pyxel-snippets
 import pyxel
 import random
 
-# Initialize a window of width 160 x height 120
-pyxel.init(200, 120)
 
-pyxel.cls(0)
+class App:
+    def __init__(self):
+        pyxel.init(260, 120)
 
+        self.queue = Queue()
 
-text_x = 10
-text_y = 5
-pyxel.text(text_x, text_y, "QUEUE DATA STRUCTURE VISUALISATION",1)  # Use color 8 (pink)
-
-list =[]
-
-def update():
-    global list # globals are bad practice but are ok for this example.
-    if pyxel.btnp(pyxel.KEY_R):
-        a = random.randint(0,100)
-        list.append(a)
-    print(list)
-
-# Define a function responsible for drawing.
-def draw():
-    global list  # globals are bad practice but are ok for this example.
-    pyxel.cls(0)
-
-    print(f'color: {list}')
-
-pyxel.run(update, draw)
+        pyxel.run(self.update, self.draw)
 
 
+
+
+
+class Queue:
+
+    def __init__(self, maxsize = 8):
+        self.maxsize = maxsize
+        self.queue =[]
+
+    def isEmpty(self):
+        return self.queue ==[]
+
+    def isFull(self):
+        if len(self.queue) == self.maxsize:
+            return True
+        else:
+            return False
+
+    def enqueue(self, item):
+        if self.isFull():
+            print("Cannot add another item ; Use dequeue to pop something out of the queue")
+        else:
+            self.queue.append()
+
+    def dequeue(self):
+        if self.isEmpty():
+            print("Cannot dequeue because there is no item in the queue")
+        else:
+            item = self.queue[0]
+            del self.queue[0]
+            return item
+
+    def peek(self):
+        return self.queue[0]
+
+    def sizeQueue(self):
+        return len(self.queue)
+
+
+if __name__ == "__main__":
+    queue = Queue()
+    print(queue.sizeQueue())
+
+    App()
