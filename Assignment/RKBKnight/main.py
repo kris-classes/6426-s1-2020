@@ -7,7 +7,7 @@ Pyxel Discord: https://discord.gg/jNRYyXn
 More examples: https://github.com/kris-classes/pyxel-snippets
 """
 import pyxel
-
+import heap_priority_queue
 
 # Create additional classes here if you want.
 class SomeCircle:
@@ -63,5 +63,7 @@ class App:
         self.circle2.draw()
 
 
+
 if __name__ == '__main__':
     App()
+
