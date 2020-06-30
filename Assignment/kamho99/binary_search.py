@@ -5,7 +5,7 @@ Implementation of binary search
 """
 import random
 
-random_list = [i for i in range(10)]
+random_list = [random.randint(0, 2**15) for i in range(2**15)]
 
 def search_the_list(the_list):
     """get a value to search for"""
