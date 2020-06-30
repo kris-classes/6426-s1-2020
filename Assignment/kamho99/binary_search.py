@@ -64,12 +64,13 @@ class App:
             pyxel.rectb(list_x - 3 + 15 * i, list_y - 3, 10, 10, 7)
 
         if App.search_for != None: # when a number is picked for searching
+            move_speed = 1
             if App.steps < len(App.record_step) - 1:
                 move_to = list_x + 15 * App.record_step[App.steps][0]
                 if App.arrow_x > move_to:
-                    App.arrow_x -= 1
+                    App.arrow_x -= move_speed
                 elif App.arrow_x < move_to:
-                    App.arrow_x += 1
+                    App.arrow_x += move_speed
                 else:
                     App.steps += 1
             pyxel.text(55, 65, 'current step:{}'.format(App.steps + 1), 7)
