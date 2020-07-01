@@ -21,7 +21,7 @@ The stack is also used to reverse things.
 Examples of stacks in "real life":
     The stack of trays in a cafeteria;
     A stack of plates in a cupboard;
-    A driveway that is only one car wide. [Riley, p. 290]
+    A driveway that is only one car wide.
 Examples of stacks in computing:
     Back/Forward stacks on browsers;
     Undo/Redo stacks in Excel or Word;
