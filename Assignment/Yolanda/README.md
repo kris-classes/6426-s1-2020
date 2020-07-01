@@ -1,5 +1,3 @@
-# Foobar
-
 ## 1.A paragraph documenting issues you encountered in the design or implementation of your chosen data structure/algorithm. 
 ```bash
 My problem focused on the initial design stage. 
