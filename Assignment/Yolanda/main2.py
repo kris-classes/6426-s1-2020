@@ -16,11 +16,19 @@ class Item:
         self.value = value
 
     def draw(self):
-        pyxel.circb(self.x, self.y, 15, 7)#空心圆
-        pyxel.rect(self.x-10, self.y-10, 20, 20, 13)
-        pyxel.circ(self.x, self.y, 10, 10)#实心圆
-        pyxel.text(self.x-1, self.y-2, self.value, 8)
+        pyxel.circb(self.x, self.y, 11, 8)  # 空心圆
 
+        #pyxel.circ(self.x, self.y, 2, 2)
+        #pyxel.circb(self.x, self.y, 10, 5)
+        pyxel.tri(self.x-10, self.y +10, self.x - 20, self.y - 5, self.x , self.y - 5, 14)
+        pyxel.tri(self.x - 20, self.y+5, self.x , self.y+5, self.x-10, self.y-10, 14)  # L
+
+        pyxel.tri(self.x+10, self.y +10, self.x, self.y - 5, self.x +20, self.y - 5, 14)
+        pyxel.tri(self.x, self.y+5, self.x+20 , self.y+5, self.x+10, self.y-10, 14)  # R
+
+        #pyxel.rect(self.x-10, self.y-10, 20, 20, 13)
+        pyxel.circ(self.x, self.y, 9, 10)#实心圆
+        pyxel.text(self.x-2, self.y-2, self.value, 8)
 class Text:
     def __init__(self, x, y, value):
         self.x = x
@@ -41,7 +49,10 @@ class App:
         self.mode_pre_order = False
        # self.stack.push('5')
        # self.stack.push('8')
+        pyxel.load("sound/[pyxel_resource_file].pyxres")
+        pyxel.sound(1).set("f1f2f3f4","TTSS", "5664", "SFSS",30)
 
+        pyxel.sound(2).set("f4f3f2f1","TTSS", "5664", "SFSS",30)
 
         # Give run the update/draw callbacks
         self.color = 1
@@ -49,16 +60,16 @@ class App:
         self.points = []
 
         pyxel.run(self.update, self.draw)
-
+        pyxel.sound().speed = 60
 
     def update(self):
 
         if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
             self.stack.push(str(random.randint(10, 15)))
-
+            pyxel.play(0, 1)
         if pyxel.btnp(pyxel.KEY_P):
             self.stack.pop()
-
+            pyxel.play(0, 2)
 
         '''
         if pyxel.btnp(pyxel.KEY_A):
@@ -76,12 +87,12 @@ class App:
 
 
     def draw_points(self):
-        for point in self.points:
+       ''' for point in self.points:
             pyxel.circ(point.x, point.y, 2, 2)
             pyxel.circb(point.x, point.y, 10, point.color)
             pyxel.tri(point.x, point.y+5, point.x-10, point.y-10, point.x+10, point.y-10, point.color)
             pyxel.tri(point.x-10, point.y, point.x+10, point.y, point.x, point.y-15, point.color) #空
-            #pyxel.text(point.x, point.y, f'Now is {self.stack.size()} Number', self.color)## show the number of stack
+            #pyxel.text(point.x, point.y, f'Now is {self.stack.size()} Number', self.color)## show the number of stack'''
 
     def draw(self):
         pyxel.cls(1)

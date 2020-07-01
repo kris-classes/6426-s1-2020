@@ -7,40 +7,24 @@ Pyxel Discord: https://discord.gg/jNRYyXn
 More examples: https://github.com/kris-classes/pyxel-snippets
 """
 import pyxel
-
-
-# Create additional classes here if you want.
-class SomeCircle:
-    def __init__(self, x, y, radius=5, color=8):
-        self.x = x
-        self.y = y
-        self.radius = radius
-        self.color = color
-
-    def update(self):
-        pass
-
-    def draw(self):
-        pyxel.circ(self.x, self.y, self.radius, self.color)
-
+import random
 
 
 class App:
+
     def __init__(self):
         # Initialize a window. Max size is 256x256 pixels.
-        pyxel.init(160, 120)
+        pyxel.init(250, 190, caption="QUEUE DATA STRUCTURE VISUALISATION")
+        self.queue = Queue()
+        pyxel.mouse(True)
+        self.ENQUEUE = False
+        self.DEQUEUE = False
 
-        self.x = 50
-        self.y = 50
-        self.message = "ISCG 6426"
-        self.circle1 = SomeCircle(100, 100, 5, 8)
-        self.circle2 = SomeCircle(100, 25, 10, 12)
 
         # Clear the screen with color 0 (black). Max color is 15.
         pyxel.cls(0)
 
         pyxel.run(self.update, self.draw)
-
 
     def update(self):
         # Put your logic in here.
@@ -58,10 +42,62 @@ class App:
         # Always remember to clear the screen.
         pyxel.cls(0)
 
-        pyxel.text(self.x, self.y, self.message, 7)
-        self.circle1.draw()
-        self.circle2.draw()
+
+        pyxel.rect(50, 100, 15, 15, 7)
+
+        pyxel.rect(80, 100, 15, 15, 7)
+
+        pyxel.rect(110, 100, 15, 15, 7)
 
 
-if __name__ == '__main__':
-    App()
+        pyxel.rect(140, 100, 15, 15, 7)
+
+
+        pyxel.rect(170, 100, 15, 15, 7)
+
+
+        if self.ENQUEUE:
+            pyxel.rect(20, 10, 64, 15, 6)
+            pyxel.text(35, 15, "Enqueue", 9)
+        else:
+            pyxel.rect(20, 10, 64, 15, 9)
+            pyxel.text(35, 15, "Enqueue", 6)
+
+        if self.DEQUEUE:
+            pyxel.rect(160, 10, 64, 15, 6)
+            pyxel.text(180, 15, "Dequeue", 9)
+        else:
+            pyxel.rect(160, 10, 64, 15, 9)
+            pyxel.text(180, 15, "Dequeue", 6)
+
+
+
+
+
+class Queue:
+
+    def __init__(self):
+        self.queue =[]
+
+    def queue_isEmpty(self):
+        return self.queue == []
+
+    def queue_isFull(self):
+        if len(self.queue) < 6:
+            return True
+    def enqueue(self,data):
+        if data not in self.queue:
+            self.queue.insert(0, data)
+            return True
+        return False
+
+    def dequeue(self):
+        data = self.queue[0]
+        del self.queue[0]
+        return data
+
+    def printQueue(self):
+        return self.queue
+
+queue = Queue()
+App()
