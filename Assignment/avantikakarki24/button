@@ -1,65 +1,92 @@
-
+"""
+ISCG6426 Assignment
+pip install --upgrade pyxel
+See https://github.com/kitao/pyxel for library
+Pyxel Discord: https://discord.gg/jNRYyXn
+More examples: https://github.com/kris-classes/pyxel-snippets
+"""
 import pyxel
 import random
-class Button:
-    """Create a button on the screen."""
-    def __init__(self, x, y, w, h, label, color):
-        # Create the splat at position (x, y)
-        self.x = x
-        self.y = y
-        self.w = w
-        self.h = h
-        self.label = label
-        self.color = color
-
-    def draw(self):
-        # Draw our button
-        pyxel.rect(self.x, self.y, self.w, self.h, self.color)
-        pyxel.text(self.x+5, self.y+5, self.label, self.color+1)
-
-    def check_clicked(self, mouse_x, mouse_y):
-        if self.x <= mouse_x <= self.x + self.w and self.y <= mouse_y <= self.y + self.h:
-            print('clicked!')
-            return True
-        else:
-            print('not clicked!')
-            return False
-
 
 
 class App:
+
     def __init__(self):
-        pyxel.init(256, 256, fps=60)
-
-        # Show the mouse cursor
+        # Initialize a window. Max size is 256x256 pixels.
+        pyxel.init(250, 190, caption="QUEUE DATA STRUCTURE VISUALISATION")
+        self.queue = Queue()
         pyxel.mouse(True)
+        self.ENQUEUE = False
+        self.DEQUEUE = False
 
-        # Create the buttons.
-        self.buttonA = Button(100, 100, 50, 20, 'clickme A', 2)
-        self.buttonB = Button(100, 150, 50, 20, 'clickme B', 8)
 
-        # Run the update/draw callback functions
+        # Clear the screen with color 0 (black). Max color is 15.
+        pyxel.cls(0)
+
         pyxel.run(self.update, self.draw)
 
 
-    def update(self):
-
-        # If the user left-clicked, create a splat at the mouse cursor position.
-        if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
-            if self.buttonA.check_clicked(pyxel.mouse_x, pyxel.mouse_y):
-                self.buttonA.color = (self.buttonA.color + 1) % 15
-                print('Do the thing for button A')
-            if self.buttonB.check_clicked(pyxel.mouse_x, pyxel.mouse_y):
-                self.buttonB.color = (self.buttonB.color + 1) % 15
-                print('Do the thing for button B')
-
 
     def draw(self):
+        # Always remember to clear the screen.
         pyxel.cls(0)
 
-        self.buttonA.draw()
-        self.buttonB.draw()
+
+        pyxel.rect(50, 100, 15, 15, 7)
+
+        pyxel.rect(80, 100, 15, 15, 7)
+
+        pyxel.rect(110, 100, 15, 15, 7)
 
 
-if __name__ == "__main__":
-    App()
+        pyxel.rect(140, 100, 15, 15, 7)
+
+
+        pyxel.rect(170, 100, 15, 15, 7)
+
+
+        if self.ENQUEUE:
+            pyxel.rect(20, 10, 64, 15, 6)
+            pyxel.text(35, 15, "Enqueue", 9)
+        else:
+            pyxel.rect(20, 10, 64, 15, 9)
+            pyxel.text(35, 15, "Enqueue", 6)
+
+        if self.DEQUEUE:
+            pyxel.rect(160, 10, 64, 15, 6)
+            pyxel.text(180, 15, "Dequeue", 9)
+        else:
+            pyxel.rect(160, 10, 64, 15, 9)
+            pyxel.text(180, 15, "Dequeue", 6)
+
+
+
+
+
+class Queue:
+
+    def __init__(self):
+        self.queue =[]
+
+    def queue_isEmpty(self):
+        return self.queue == []
+
+    def queue_isFull(self):
+        if len(self.queue) < 6:
+            return True
+    def enqueue(self,data):
+        if data not in self.queue:
+            self.queue.insert(0, data)
+            return True
+        return False
+
+    def dequeue(self):
+        data = self.queue[0]
+        del self.queue[0]
+        return data
+
+    def printQueue(self):
+        return self.queue
+
+queue = Queue()
+App()
