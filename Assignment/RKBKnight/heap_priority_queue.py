@@ -38,11 +38,8 @@ class PriorityQueue:
         else:
             self.queue = queue
             self.newQueue = queue
-
-        heapq.heapify(self.queue)
-
         self.maxsize = maxsize
-
+        self.random_list= []
     def __str__(self):
         return f'<PriorityQueue __str__: {self.queue}>'
 
@@ -104,16 +101,22 @@ class PriorityQueue:
             pass
 
     def runHeapify(self):
+        if self.newQueue:
+            self.newQueue = []
         if self.queue:
-            self.newQueue = heapq.heapify(self.queue)
             print(self.queue)
-            print(self.newQueue)
+            for i in self.queue:
+                self.newQueue.append(i)
+                print(self.queue)
+                print(self.newQueue)
+            heapq.heapify(self.newQueue)
         return self.newQueue
 
     def changeRandomList(self):
-        random_list = [random.randint(0, 9) for i in range(10)]
+        self.random_list = [random.randint(0, 9) for i in range(10)]
+        return self.random_list
 
 
-pq = PriorityQueue()
+'''pq = PriorityQueue()
 pq.queue = pq.setList(1)
-print(pq.runHeapify())
+print(pq.runHeapify())'''
