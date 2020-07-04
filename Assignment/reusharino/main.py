@@ -278,17 +278,22 @@ class App:
                 if LO[0] < LO[-1]:
                     self.minCorrect.draw()
                     ButtonTextMin = CorrectText
+                    print("correct guess min")
                 else:
                     ButtonTextMin = IncorrectText
+                    print("incorrect guess min")
             if 140 < mx < 200 and 130 < my < 190:
                 print("clicked max")
                 if LO[0] > LO[-1]:
                     self.maxCorrect.draw()
                     ButtonTextMax = CorrectText
+                    print("correct guess max")
                 else:
                     ButtonTextMax = IncorrectText
+                    print("incorrect guess max")
 
         # Text and buttons
+        pyxel.text(105, 130, "Take A Guess", 7)
         pyxel.text(80, 200, "This is the initial list", 7)
         pyxel.text(30, 210, str(OL), 7)
 
