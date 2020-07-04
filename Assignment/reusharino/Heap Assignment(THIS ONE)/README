@@ -1,0 +1,12 @@
+ISSUES
+
+The primary issues encountered in this project have been comprehension of
+the pyxel module, the implementation of heaps has not been a major issue as illustrated
+by the minHeap.py and maxHeap.py files. The primary issue has been the actual anuimation
+of the processes performed by the files previously mentioned
+
+PERKS OF HEAPS
+
+REAL-WORLD APPLICATION
+
+ASYMPTOMATIC ISSUES

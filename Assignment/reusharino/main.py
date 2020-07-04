@@ -49,7 +49,6 @@ def minHeap(listObj):
         heapPush(listObj)
         heapq.heapify(listObj)
         return listObj
-
     heapIT(listObj)
 
 
@@ -273,12 +272,12 @@ class App:
         pyxel.text(80, 200, "This is the initial list", 7)
         pyxel.text(30, 210, str(NL), 7)
 
-        self.minButton.draw()
-        pyxel.text(80, 150, "THIS IS \n   A\nMIN HEAP", 7)
-
-        self.maxButton.draw()
-        pyxel.text(150, 150, "THIS IS \n   A\nMAX HEAP", 7)
-
+        if heapType == "min":
+            self.minButton.draw()
+            pyxel.text(80, 150, "THIS IS \n   A\nMIN HEAP", 7)
+        if heapType == "max":
+            self.maxButton.draw()
+            pyxel.text(150, 150, "THIS IS \n   A\nMAX HEAP", 7)
         pyxel.text(10, 10, "HEAPS BRO", 7)
 
         # print(LO)
