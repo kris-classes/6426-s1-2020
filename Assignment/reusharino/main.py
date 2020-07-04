@@ -33,7 +33,7 @@ def randomList():
     return LO
 
 
-def minHeap(listObj, heapType):
+def minHeap(listObj):
     def heapPush(listObj):
         heapObj = []
         heapq.heapify(heapObj)
@@ -48,12 +48,12 @@ def minHeap(listObj, heapType):
     def heapIT(listObj):
         heapPush(listObj)
         heapq.heapify(listObj)
-        return listObj, heapType == "min"
+        return listObj
 
     heapIT(listObj)
 
 
-def maxHeap(listObj, heapType):
+def maxHeap(listObj):
     def heapify(listObj, n, i):
         biggest = i
         l = 2 * i + 1
@@ -78,10 +78,8 @@ def maxHeap(listObj, heapType):
 
     n = len(listObj)
     buildHeap(listObj, n)
-    return listObj, heapType == "max"
+    return listObj
 
-
-heapType = ""
 
 x = random.randint(1, 10)
 print(x)
@@ -90,7 +88,7 @@ if x >= 5:
     OL = []
     for i in LO:
         OL.append(i)
-    minHeap(LO, heapType)
+    minHeap(LO)
     NL = []
     print(LO)
     for i in LO:
@@ -101,7 +99,7 @@ elif x < 5:
     OL = []
     for i in LO:
         OL.append(i)
-    maxHeap(LO, heapType)
+    maxHeap(LO)
     NL = []
     print(LO)
     for i in LO:
@@ -109,7 +107,6 @@ elif x < 5:
 
 print(LO)
 print(OL)
-print(heapType)
 
 
 class App:
@@ -192,7 +189,11 @@ class App:
         if pyxel.btnp(pyxel.KEY_D):
             self.x += 1
 
-    def draw(self, heapType=None):
+        if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
+            mx = pyxel.mouse_x
+            my = pyxel.mouse_y
+
+    def draw(self):
         # Always remember to clear the screen.
         pyxel.cls(0)
 
@@ -266,21 +267,26 @@ class App:
 
         ButtonTextMin = "THIS IS \n   A\nMIN HEAP"
         ButtonTextMax = "THIS IS \n   A\nMAX HEAP"
-        CorrectText = "THAT IS CORRECT"
+        CorrectText = "THAT \n   IS\nCORRECT"
+        IncorrectText = "NOPE"
 
         if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
             mx = pyxel.mouse_x
             my = pyxel.mouse_y
-            if pyxel.mouse_x(94) > pyxel.mouse_x(114) and pyxel.mouse_y(158) < pyxel.mouse_y(178):
-                print("click")
-                if LO[0] > LO[-1]:
+            if 70 < mx < 130 and 130 < my < 190:
+                print("clicked min")
+                if LO[0] < LO[-1]:
                     self.minCorrect.draw()
                     ButtonTextMin = CorrectText
-            if pyxel.mouse_x() > pyxel.mouse_x(184) and pyxel.mouse_y(158) < pyxel.mouse_y(178):
-                print("click")
+                else:
+                    ButtonTextMin = IncorrectText
+            if 140 < mx < 200 and 130 < my < 190:
+                print("clicked max")
                 if LO[0] > LO[-1]:
                     self.maxCorrect.draw()
                     ButtonTextMax = CorrectText
+                else:
+                    ButtonTextMax = IncorrectText
 
         # Text and buttons
         pyxel.text(80, 200, "This is the initial list", 7)
