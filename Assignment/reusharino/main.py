@@ -90,7 +90,6 @@ if x >= 5:
         OL.append(i)
     minHeap(LO)
     NL = []
-    print(LO)
     for i in LO:
         NL.append(i)
 
@@ -101,7 +100,6 @@ elif x < 5:
         OL.append(i)
     maxHeap(LO)
     NL = []
-    print(LO)
     for i in LO:
         NL.append(i)
 
@@ -271,7 +269,7 @@ class App:
             mx = pyxel.mouse_x
             my = pyxel.mouse_y
             if 70 < mx < 130 and 130 < my < 190:
-                print("clicked min")
+                print("you clicked min")
                 if LO[0] < LO[-1]:
                     self.minCorrect.draw()
                     ButtonTextMin = CorrectText
@@ -280,7 +278,7 @@ class App:
                     ButtonTextMin = IncorrectText
                     print("incorrect guess min")
             if 140 < mx < 200 and 130 < my < 190:
-                print("clicked max")
+                print("you clicked max")
                 if LO[0] > LO[-1]:
                     self.maxCorrect.draw()
                     ButtonTextMax = CorrectText
