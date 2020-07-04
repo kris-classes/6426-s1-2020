@@ -189,9 +189,6 @@ class App:
         if pyxel.btnp(pyxel.KEY_D):
             self.x += 1
 
-        if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
-            mx = pyxel.mouse_x
-            my = pyxel.mouse_y
 
     def draw(self):
         # Always remember to clear the screen.
