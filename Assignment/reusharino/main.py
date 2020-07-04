@@ -103,8 +103,8 @@ elif x < 5:
     for i in LO:
         NL.append(i)
 
-print(LO)
-print(OL)
+print(f"Heaped list {LO}")
+print(f"Initial list {OL}")
 
 
 class App:
@@ -186,7 +186,6 @@ class App:
             self.y += 1
         if pyxel.btnp(pyxel.KEY_D):
             self.x += 1
-
 
     def draw(self):
         # Always remember to clear the screen.
