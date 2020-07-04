@@ -6,12 +6,30 @@ by the minHeap.py and maxHeap.py files. The primary issue has been the actual an
 of the processes performed by the files previously mentioned. This may just be a human
 error issue.
 
+
 PERKS OF HEAPS
+Heaps being complete binary trees have the benefit of being fast where depth
+first searches are concerned as well as being useful for removing the smallest
+or largest items from a list.
+Being that heaps can be used for process scheduling it can be assumed that they
+are not hugely resource intensive.
+Smaller input sizes for heaps will work faster to a certain point however worst
+case being being a constant number heaps in a sense dont really have preferable
+conditions compared to any given structure where worst case time complexity is
+something like O(n^2)
+
 
 REAL-WORLD APPLICATION
 Process scheduling at kernel level
 
+
 ASYMPTOMATIC ISSUES
 Space Complexity Worst = O(n)
+means an algorithm will only check a structure a constant number of times
+
 Time Complexity Average = O(log(n))
+means an algorithm will the running time will grow in proportion to the input
+size of a given input
+
 Time Complexity Worst = O(n)
+means an algorithm will only check a structure a constant number of times
