@@ -84,5 +84,13 @@ class PriorityQueue:
         # Raise a QueueIsEmptyException if the queue is empty.
 
         # TODO: Implement pop()
+<<<<<<< HEAD
+        if self.is_empty():
+            raise QueueIsEmptyException("queue is empty")
+        else:
+            self.queue.pop(self.queue[0])
+
+=======
         return 'IMPLEMENT ME'
+>>>>>>> 0ea15458a7d996dcbae7be217b8c19d1c9e03ed5
 
