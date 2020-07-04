@@ -33,7 +33,7 @@ def randomList():
     return LO
 
 
-def minHeap(listObj):
+def minHeap(listObj, heapType):
     def heapPush(listObj):
         heapObj = []
         heapq.heapify(heapObj)
@@ -48,11 +48,12 @@ def minHeap(listObj):
     def heapIT(listObj):
         heapPush(listObj)
         heapq.heapify(listObj)
-        return listObj
+        return listObj, heapType == "min"
+
     heapIT(listObj)
 
 
-def maxHeap(listObj):
+def maxHeap(listObj, heapType):
     def heapify(listObj, n, i):
         biggest = i
         l = 2 * i + 1
@@ -77,33 +78,38 @@ def maxHeap(listObj):
 
     n = len(listObj)
     buildHeap(listObj, n)
-    return listObj
+    return listObj, heapType == "max"
 
 
-LO = randomList()
+heapType = ""
 
-NL = []
-for i in LO:
-    NL.append(i)
-
-x = random.randint(1, 100)
+x = random.randint(1, 10)
 print(x)
-if x // 2 == 0:
+if x >= 5:
     LO = randomList()
-    minHeap(LO)
+    OL = []
+    for i in LO:
+        OL.append(i)
+    minHeap(LO, heapType)
     NL = []
     print(LO)
     for i in LO:
         NL.append(i)
 
-elif x // 2 == 1:
+elif x < 5:
     LO = randomList()
-    maxHeap(LO)
+    OL = []
+    for i in LO:
+        OL.append(i)
+    maxHeap(LO, heapType)
     NL = []
     print(LO)
     for i in LO:
         NL.append(i)
+
 print(LO)
+print(OL)
+print(heapType)
 
 
 class App:
@@ -165,7 +171,9 @@ class App:
         self.n15 = Circle(rrr[0], rrr[1], 7, LO[14] + 1, LO[14])
 
         self.minButton = Circle(94, 158, 20, 8, 0)
+        self.minCorrect = Circle(94, 158, 20, 11, 0)
         self.maxButton = Circle(164, 158, 20, 8, 0)
+        self.maxCorrect = Circle(164, 158, 20, 11, 0)
 
         # Clear the screen with color 0 (black). Max color is 15.
         pyxel.cls(0)
@@ -183,20 +191,8 @@ class App:
             self.y += 1
         if pyxel.btnp(pyxel.KEY_D):
             self.x += 1
-            minHeap(LO)
-        if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
-            x = pyxel.mouse_x
-            y = pyxel.mouse_y
-        if 94 > x > 114 and 158 < y < 178:
-            minHeap(LO)
-            self.draw()
-            print("click")
-        if 164 > x > 184 and 158 < y < 178:
-            maxHeap(LO)
-            self.draw()
-            print("click")
 
-    def draw(self):
+    def draw(self, heapType=None):
         # Always remember to clear the screen.
         pyxel.cls(0)
 
@@ -268,16 +264,34 @@ class App:
         pyxel.text(175, 98, str(LO[13]), 0)
         pyxel.text(195, 98, str(LO[14]), 0)
 
+        ButtonTextMin = "THIS IS \n   A\nMIN HEAP"
+        ButtonTextMax = "THIS IS \n   A\nMAX HEAP"
+        CorrectText = "THAT IS CORRECT"
+
+        if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
+            mx = pyxel.mouse_x
+            my = pyxel.mouse_y
+            if pyxel.mouse_x(94) > pyxel.mouse_x(114) and pyxel.mouse_y(158) < pyxel.mouse_y(178):
+                print("click")
+                if LO[0] > LO[-1]:
+                    self.minCorrect.draw()
+                    ButtonTextMin = CorrectText
+            if pyxel.mouse_x() > pyxel.mouse_x(184) and pyxel.mouse_y(158) < pyxel.mouse_y(178):
+                print("click")
+                if LO[0] > LO[-1]:
+                    self.maxCorrect.draw()
+                    ButtonTextMax = CorrectText
+
         # Text and buttons
         pyxel.text(80, 200, "This is the initial list", 7)
-        pyxel.text(30, 210, str(NL), 7)
+        pyxel.text(30, 210, str(OL), 7)
 
-        if heapType == "min":
-            self.minButton.draw()
-            pyxel.text(80, 150, "THIS IS \n   A\nMIN HEAP", 7)
-        if heapType == "max":
-            self.maxButton.draw()
-            pyxel.text(150, 150, "THIS IS \n   A\nMAX HEAP", 7)
+        self.minButton.draw()
+        pyxel.text(80, 150, ButtonTextMin, 7)
+
+        self.maxButton.draw()
+        pyxel.text(150, 150, ButtonTextMax, 7)
+
         pyxel.text(10, 10, "HEAPS BRO", 7)
 
         # print(LO)
@@ -287,4 +301,3 @@ class App:
 
 if __name__ == '__main__':
     App()
-
