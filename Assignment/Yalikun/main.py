@@ -34,10 +34,6 @@ class Node:
 
 
 
-
-
-
-
 class App:
     def __init__(self):
         pyxel.init(256, 180, caption="Min heap visualization")
@@ -54,9 +50,7 @@ class App:
         self.heap()
 
 
-
-
-
+        #node for n1 to n15
 
         self.n1 = Node(128, 30, 6, 8)
 
@@ -94,18 +88,7 @@ class App:
         pyxel.run(self.update, self.draw)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+# get random amount of random number
     def getrandomlist(self):
         self.randlslen = random.randint(3, 15)
 
@@ -129,7 +112,7 @@ class App:
         return len(self.outputlist)
 
     def heap(self):
-
+# min heap
         if self.minheap() is True:
             minheapnumlist = self.randomlist
             heapq.heapify(minheapnumlist)
@@ -139,6 +122,7 @@ class App:
                 j = str(j)
                 self.outputlist.append(j)
 
+# max heap
         elif self.maxheap() is True:
             maxheapnumlist = self.randomlist
             heapq._heapify_max(maxheapnumlist)
@@ -161,7 +145,7 @@ class App:
 
 
     def update(self):
-        pass
+# mouse click for swap min and max heap
         if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
             x = pyxel.mouse_x
             y = pyxel.mouse_y
@@ -174,6 +158,8 @@ class App:
                 self.status = 2
                 self.outputlist = []
                 self.heap()
+
+# key press for swap min heap and max heap
         if pyxel.btn(pyxel.KEY_1):
             self.status = 1
             self.outputlist = []
@@ -190,7 +176,7 @@ class App:
     def draw(self):
         pyxel.cls(0)
 
-# renew btn
+# nevigation button
         pyxel.rectb(0, 0, 85, 15, 12)
         pyxel.text(30, 5, "Min heap", 12)
 
@@ -200,9 +186,10 @@ class App:
         pyxel.rectb(0, 0, 255, 15, 12)
         pyxel.text(200, 5, "Max heap", 12)
 
-
+# for each node, draw node, put value in node and draw line between parent and child
 
         # n1 to n3
+        # n1 connect with n2 and n3
         self.n1.draw()
         pyxel.text(125, 28, self.outputlist[0], 7)
         self.n2.draw()
@@ -213,6 +200,8 @@ class App:
         pyxel.line(128, 37, 186, 58, 11)
 
 # n4 to n7
+# n2 connect with n4 and n5
+# n3 connect with n6 and n7
         if self.size >= 4:
             self.n4.draw()
             pyxel.text(32, 98, self.outputlist[3], 7)
@@ -231,6 +220,11 @@ class App:
             pyxel.line(186, 72, 220, 93, 11)
 
 # n8 to n15
+# n4 connect with n8 and n9  
+# n5 connect with n10 and n11
+# n6 connect with n12 and n13
+# n7 connect with n14 and n15
+           
         if self.size >= 8:
             self.n8.draw()
             pyxel.text(17, 133, self.outputlist[7], 7)
@@ -264,11 +258,42 @@ class App:
             pyxel.text(232, 133, self.outputlist[14], 7)
             pyxel.line(220, 107, 235, 128, 11)
 
+# display heap as list in button
         pyxel.text(0,170,f"heap: {self.outputlist}",7)
-
 
 
 
 if __name__ == '__main__':
     App()
 
+
+
+
+
+
+'''
+
+pick minimum of 3 to maximumm of 15 f random number nad convert to stinglist
+draw node and build tree for stringlist and put text of list value for each node
+user can swap mai heap and max heap by either click on min heap and max heap button on screen or press 1 and 2
+
+tree structure:
+                    n1
+                   /  \
+                 /     \
+               /        \
+             /            \
+            /              \
+           n2               n3
+           /  \            /  \
+         /     \          /     \
+        n4       n5      n6       n7
+        /\       /\      /\       /\
+       /   \    /   \   /  \     /   \
+      n8   n9  n10  n11 n12 n13 n14   n15
+  
+
+
+
+
+'''
