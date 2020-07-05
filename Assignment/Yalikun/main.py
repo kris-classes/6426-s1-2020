@@ -174,6 +174,15 @@ class App:
                 self.status = 2
                 self.outputlist = []
                 self.heap()
+        if pyxel.btn(pyxel.KEY_1):
+            self.status = 1
+            self.outputlist = []
+            self.heap()
+        elif pyxel.btn(pyxel.KEY_2):
+            self.status = 2
+            self.outputlist = []
+            self.heap()
+
 
 
 
