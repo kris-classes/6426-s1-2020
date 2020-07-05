@@ -207,7 +207,7 @@ class App:
         if self.size >= 4:
             self.n4.draw()
             pyxel.text(32, 98, self.outputlist[3], 7)
-            pyxel.line(70, 72, 32, 98, 11)
+            pyxel.line(70, 72, 35, 93, 11)
         if self.size >= 5:
             self.n5.draw()
             pyxel.text(97, 98, self.outputlist[4], 7)
@@ -255,10 +255,11 @@ class App:
             pyxel.text(232, 133, self.outputlist[14], 7)
             pyxel.line(220, 107, 235, 128, 11)
 
+        pyxel.text(0,170,f"heap: {self.outputlist}",7)
+
 
 
 
 if __name__ == '__main__':
     App()
-
 
