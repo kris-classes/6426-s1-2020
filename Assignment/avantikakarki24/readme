@@ -1,11 +1,11 @@
-# 1.A paragraph documenting issues you encountered in the design or implementation of your chosen data structure/algorithm. 
+### 1.A paragraph documenting issues you encountered in the design or implementation of your chosen data structure/algorithm. 
 
 I faced a couple of issues while implementing my chosen data structure which was Queue.
 In the beginning i was not sure how to start the project , i tried looking for some online 
 learning material but there was nothiing online so then i looked at some stuff which our lecturer
 gave us and tried to understand how pyxel works and what are the stuffs that we can do with it.
 
-# Briefly explain the strengths and weaknesses of your data structure or algorithm
+### Briefly explain the strengths and weaknesses of your data structure or algorithm
 with respect to resource consumption. Under what conditions does it perform
 the best or worst?
 
@@ -17,14 +17,14 @@ the new element in the queue must be removed, to remove the new element.
 The main limitation of queues in a data structure is one of the basic operations of deleting an element from it is cumbersome.
 
 
-#List a real-world application of your chosen data structure or algorithm.
+### List a real-world application of your chosen data structure or algorithm.
 
 1. Call center phone system uses queue data structure to serve the customers calls
 2. serving requests on  single shared resource like printer, CPU task scheduling.
 3. ATM booth line
 4.Determining number of cashiers to have at a supermarket.
 
-#A sentence or two on the asymptotic worst-case time and space complexity of
+### A sentence or two on the asymptotic worst-case time and space complexity of
 your chosen data structure/algorithm.
 
 Queues offer random access to their contents by shifting the first element off the front of the queue. 
