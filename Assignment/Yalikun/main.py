@@ -220,11 +220,11 @@ class App:
             pyxel.line(186, 72, 220, 93, 11)
 
 # n8 to n15
-# n4 connect with n8 and n9  
+# n4 connect with n8 and n9
 # n5 connect with n10 and n11
 # n6 connect with n12 and n13
 # n7 connect with n14 and n15
-           
+
         if self.size >= 8:
             self.n8.draw()
             pyxel.text(17, 133, self.outputlist[7], 7)
@@ -292,6 +292,18 @@ tree structure:
        /   \    /   \   /  \     /   \
       n8   n9  n10  n11 n12 n13 n14   n15
   
+
+strengths of using heap
+easily fo find greatest and smallest number
+Garbage collection runs on the heap memory to free the memory used by the object
+no memory size limit
+
+
+weekness of using heap
+takes more time to compute
+takes more time to execute
+memory more complicated as it used globally
+
 
 
 
