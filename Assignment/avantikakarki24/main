@@ -66,15 +66,7 @@ class DEQUEUE_BUTTON:
             return False
 
 
-class animated_text:
 
-    def __init__(self,x,y,text):
-        self.x = x
-        self.y = y
-        self.text = text
-
-    def draw(self):
-        pyxel.text(self.x,self,y,self.text)
 class App:
     def __init__(self):
         pyxel.init(250,170, caption="QUEUE DATA STRUCTURE VISUALISATION")
