@@ -45,8 +45,7 @@ class Node:
 
 
 
-
-
+'''
 randlslen = random.randint(3,15)
 
 
@@ -59,7 +58,7 @@ for i in range(randlslen):
 print('random')
 print(randomlist)
 
-
+'''
 
 
 
@@ -79,6 +78,11 @@ class App:
     def __init__(self):
         pyxel.init(256, 180, caption="Min heap visualization")
         pyxel.mouse(True)
+
+        self.randlslen = 0
+        self.randomlist = []
+        self.getrandomlist()
+
 
         self.outputlist = []
         self.heap()
@@ -126,7 +130,13 @@ class App:
 
 
 
+    def getrandomlist(self):
+        self.randlslen = random.randint(3, 15)
 
+        for i in range(self.randlslen):
+            n = random.randint(1, 99)
+            self.randomlist.append(n)
+        return self.randomlist
 
 
     def minheap(self):
@@ -143,7 +153,7 @@ class App:
     def heap(self):
 
         if self.minheap() is True:
-            minheapnumlist = randomlist
+            minheapnumlist = self.randomlist
             heapq.heapify(minheapnumlist)
             print('min')
             print(minheapnumlist)
@@ -152,7 +162,7 @@ class App:
                 self.outputlist.append(j)
 
         elif self.maxheap() is True:
-            maxheapnumlist = randomlist
+            maxheapnumlist = self.randomlist
             heapq._heapify_max(maxheapnumlist)
             print('max')
             print(maxheapnumlist)
