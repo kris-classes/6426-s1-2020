@@ -38,46 +38,12 @@ class Node:
 
 
 
-
-
-
-
-
-
-
-'''
-randlslen = random.randint(3,15)
-
-
-
-
-randomlist = []
-for i in range(randlslen):
-    n = random.randint(1,99)
-    randomlist.append(n)
-print('random')
-print(randomlist)
-
-'''
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class App:
     def __init__(self):
         pyxel.init(256, 180, caption="Min heap visualization")
         pyxel.mouse(True)
+
+        self.status = 2
 
         self.randlslen = 0
         self.randomlist = []
@@ -125,8 +91,18 @@ class App:
 
         pyxel.cls(0)
 
-
         pyxel.run(self.update, self.draw)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -140,10 +116,12 @@ class App:
 
 
     def minheap(self):
-        return True
+        if self.status == 1:
+            return True
 
     def maxheap(self):
-        return False
+        if self.status == 2:
+            return True
 
 
     @property
@@ -171,20 +149,32 @@ class App:
                 self.outputlist.append(k)
 
 
+    def reset(self):
+        if self.status == 0:
+            self.outputlist = []
+            self.randomlist = []
+            self.getrandomlist()
+
+
+
 
 
 
     def update(self):
+        pass
         if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
             x = pyxel.mouse_x
             y = pyxel.mouse_y
 
             if x < 85 and y < 15:
-                pyxel.play(0, 1)
-            elif 85 < x < 170 and y < 15:
-                pyxel.play(0, 1)
+                self.status = 1
+                self.outputlist = []
+                self.heap()
             elif 170 < x < 255 and y < 15:
-                pyxel.play(0, 1)
+                self.status = 2
+                self.outputlist = []
+                self.heap()
+
 
 
 
@@ -270,7 +260,5 @@ class App:
 
 if __name__ == '__main__':
     App()
-
-
 
 
