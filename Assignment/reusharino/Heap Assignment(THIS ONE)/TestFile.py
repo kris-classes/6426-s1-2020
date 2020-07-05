@@ -33,12 +33,8 @@ def randomList():
     return LO
 
 
-isMinHeap = False
-
-
-def minHeap(listObj, checker):
-    def heapPush(listObj, checker):
-        # checker = True
+def minHeap(listObj):
+    def heapPush(listObj):
         heapObj = []
         heapq.heapify(heapObj)
         for i in listObj:
@@ -47,15 +43,12 @@ def minHeap(listObj, checker):
             heapq.heapify(heapObj)
             # print(heapObj)
         listObj = heapObj
-        return listObj, checker
+        return listObj
 
-    def heapIT(listObj, checker):
-        checker = True
+    def heapIT(listObj):
         heapPush(listObj)
         heapq.heapify(listObj)
-        return listObj, checker
-
-    heapIT(listObj, isMinHeap)
+        return listObj
 
 
 def maxHeap(listObj):
@@ -77,7 +70,6 @@ def maxHeap(listObj):
 
     def buildHeap(listObj, n):
         startIdx = n // 2 - 1
-        checker = False
         for i in range(startIdx, -1, -1):
             heapify(listObj, n, i)
 
@@ -92,24 +84,36 @@ NL = []
 for i in LO:
     NL.append(i)
 
-x = random.randint(1, 100)
-print(x)
-if x // 2 == 0:
+heapType = ""
+
+
+def MakeMin(hType):
+    hType = "min"
     LO = randomList()
     minHeap(LO)
     NL = []
-    print(LO)
     for i in LO:
         NL.append(i)
 
-elif x // 2 == 1:
+    return hType == "min"
+
+
+def MakeMax(hType):
+    hType = "max"
     LO = randomList()
     maxHeap(LO)
     NL = []
-    print(LO)
     for i in LO:
         NL.append(i)
-print(LO)
+    print(LO)
+    print(hType)
+    return hType == "max"
+
+
+# MakeMin(heapType)
+MakeMax(heapType)
+
+print(heapType)
 
 
 class App:
@@ -277,10 +281,10 @@ class App:
         # Text and buttons
         pyxel.text(80, 200, "This is the initial list", 7)
         pyxel.text(30, 210, str(NL), 7)
-        if isMinHeap == True:
+        if heapType == "min":
             self.minButton.draw()
             pyxel.text(80, 150, "THIS IS \n   A\nMIN HEAP", 7)
-        if isMinHeap == False:
+        if heapType == "max":
             self.maxButton.draw()
             pyxel.text(150, 150, "THIS IS \n   A\nMAX HEAP", 7)
 

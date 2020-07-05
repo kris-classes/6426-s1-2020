@@ -13,7 +13,7 @@
 * [OnishaX](https://github.com/OnishaX)
 * [reusharino](https://github.com/reusharino) - L-System - https://en.wikipedia.org/wiki/L-system
 * [RKBKnight](https://github.com/RKBKnight)
-* [Yalikun](https://github.com/Yalikun)       - Fibonacci Heap -  https://en.wikipedia.org/wiki/Fibonacci_heap
+* [Yalikun](https://github.com/Yalikun)       - Min Heap -  https://en.wikipedia.org/wiki/Binary_heap
 * [Yolanda](https://github.com/YolandaYUYAN) - Stack - https://en.wikipedia.org/wiki/Stack_(abstract_data_type)
 
 
