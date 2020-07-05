@@ -39,6 +39,20 @@ class Node:
 
 
 
+
+
+
+
+
+def minheap():
+    return True
+def maxheap():
+    return False
+
+
+
+
+
 randlslen = random.randint(3,15)
 
 
@@ -48,18 +62,44 @@ randomlist = []
 for i in range(randlslen):
     n = random.randint(1,99)
     randomlist.append(n)
+print('random')
 print(randomlist)
 
-minheapnumlist = []
-for j in randomlist:
-    heapq.heappush(minheapnumlist,j)
-print(minheapnumlist)
 
-minheaplist = []
-for k in minheapnumlist:
-    k = str(k)
-    minheaplist.append(k)
 
+
+outputlist = []
+
+
+
+if minheap() is True:
+    minheapnumlist = randomlist
+    heapq.heapify(minheapnumlist)
+    print('min')
+    print(minheapnumlist)
+    for j in minheapnumlist:
+        j = str(j)
+        outputlist.append(j)
+
+elif maxheap() is True:
+    maxheapnumlist = randomlist
+    heapq._heapify_max(maxheapnumlist)
+    print('max')
+    print(maxheapnumlist)
+    for k in maxheapnumlist:
+        k = str(k)
+        outputlist.append(k)
+
+
+
+
+
+
+
+
+
+print('output')
+print(outputlist)
 
 
 
@@ -76,30 +116,30 @@ class App:
         self.n2 = Node(70, 65, 6, 8)
         self.n3 = Node(186, 65, 6, 8)
 
-        if len(minheaplist) >= 4:
+        if len(outputlist) >= 4:
             self.n4 = Node(35, 100, 6, 8)
-        if len(minheaplist) >= 5:
+        if len(outputlist) >= 5:
             self.n5 = Node(100, 100, 6, 8)
-        if len(minheaplist) >= 6:
+        if len(outputlist) >= 6:
             self.n6 = Node(155, 100, 6, 8)
-        if len(minheaplist) >= 7:
+        if len(outputlist) >= 7:
             self.n7 = Node(220, 100, 6, 8)
 
-        if len(minheaplist) >= 8:
+        if len(outputlist) >= 8:
             self.n8 = Node(20, 135, 6, 8)
-        if len(minheaplist) >= 9:
+        if len(outputlist) >= 9:
             self.n9 = Node(50, 135, 6, 8)
-        if len(minheaplist) >= 10:
+        if len(outputlist) >= 10:
             self.n10 = Node(85, 135, 6, 8)
-        if len(minheaplist) >= 11:
+        if len(outputlist) >= 11:
             self.n11 = Node(115, 135, 6, 8)
-        if len(minheaplist) >= 12:
+        if len(outputlist) >= 12:
             self.n12 = Node(140, 135, 6, 8)
-        if len(minheaplist) >= 13:
+        if len(outputlist) >= 13:
             self.n13 = Node(170, 135, 6, 8)
-        if len(minheaplist) >= 14:
+        if len(outputlist) >= 14:
             self.n14 = Node(205, 135)
-        if len(minheaplist) >= 15:
+        if len(outputlist) >= 15:
             self.n15 = Node(235, 135, 6, 8)
 
         pyxel.cls(0)
@@ -114,72 +154,77 @@ class App:
         pyxel.cls(0)
 
 # renew btn
-        pyxel.rectb(0, 0, 64, 15, 12)
-        pyxel.text(20, 5, "Renew", 12)
+        pyxel.rectb(0, 0, 85, 15, 12)
+        pyxel.text(30, 5, "Min heap", 12)
+
+        pyxel.rectb(0, 0, 170, 15, 12)
+        pyxel.text(110, 5, "New Random", 12)
+
+        pyxel.rectb(0, 0, 255, 15, 12)
+        pyxel.text(200, 5, "Max heap", 12)
 
 
 
-
-# n1 to n3
+        # n1 to n3
         self.n1.draw()
-        pyxel.text(125, 28, minheaplist[0], 7)
+        pyxel.text(125, 28, outputlist[0], 7)
         self.n2.draw()
-        pyxel.text(67, 63, minheaplist[1], 7)
+        pyxel.text(67, 63, outputlist[1], 7)
         pyxel.line(128, 37, 70, 58, 11)
         self.n3.draw()
-        pyxel.text(183, 63, minheaplist[2], 7)
+        pyxel.text(183, 63, outputlist[2], 7)
         pyxel.line(128, 37, 186, 58, 11)
 
 # n4 to n7
-        if len(minheaplist) >= 4:
+        if len(outputlist) >= 4:
             self.n4.draw()
-            pyxel.text(32, 98, minheaplist[3], 7)
+            pyxel.text(32, 98, outputlist[3], 7)
             pyxel.line(70, 72, 32, 98, 11)
-        if len(minheaplist) >= 5:
+        if len(outputlist) >= 5:
             self.n5.draw()
-            pyxel.text(97, 98, minheaplist[4], 7)
+            pyxel.text(97, 98, outputlist[4], 7)
             pyxel.line(70, 72, 100, 93, 11)
-        if len(minheaplist) >= 6:
+        if len(outputlist) >= 6:
             self.n6.draw()
-            pyxel.text(152, 98, minheaplist[5], 7)
+            pyxel.text(152, 98, outputlist[5], 7)
             pyxel.line(186, 72, 155, 93, 11)
-        if len(minheaplist) >= 7:
+        if len(outputlist) >= 7:
             self.n7.draw()
-            pyxel.text(217, 98, minheaplist[6], 7)
+            pyxel.text(217, 98, outputlist[6], 7)
             pyxel.line(186, 72, 220, 93, 11)
 
 # n8 to n15
-        if len(minheaplist) >= 8:
+        if len(outputlist) >= 8:
             self.n8.draw()
-            pyxel.text(17, 133, minheaplist[7], 7)
+            pyxel.text(17, 133, outputlist[7], 7)
             pyxel.line(35, 107, 20, 128, 11)
-        if len(minheaplist) >= 9:
+        if len(outputlist) >= 9:
             self.n9.draw()
-            pyxel.text(47, 133, minheaplist[8], 7)
+            pyxel.text(47, 133, outputlist[8], 7)
             pyxel.line(35, 107, 50, 128, 11)
-        if len(minheaplist) >= 10:
+        if len(outputlist) >= 10:
             self.n10.draw()
-            pyxel.text(82, 133, minheaplist[9], 7)
+            pyxel.text(82, 133, outputlist[9], 7)
             pyxel.line(100, 107, 85, 128, 11)
-        if len(minheaplist) >= 11:
+        if len(outputlist) >= 11:
             self.n11.draw()
-            pyxel.text(112, 133, minheaplist[10], 7)
+            pyxel.text(112, 133, outputlist[10], 7)
             pyxel.line(100, 107, 115, 128, 11)
-        if len(minheaplist) >= 12:
+        if len(outputlist) >= 12:
             self.n12.draw()
-            pyxel.text(137, 133, minheaplist[11], 7)
+            pyxel.text(137, 133, outputlist[11], 7)
             pyxel.line(155, 107, 140, 128, 11)
-        if len(minheaplist) >= 13:
+        if len(outputlist) >= 13:
             self.n13.draw()
-            pyxel.text(167, 133, minheaplist[12], 7)
+            pyxel.text(167, 133, outputlist[12], 7)
             pyxel.line(155, 107, 170, 128, 11)
-        if len(minheaplist) >= 14:
+        if len(outputlist) >= 14:
             self.n14.draw()
-            pyxel.text(202, 133, minheaplist[13], 7)
+            pyxel.text(202, 133, outputlist[13], 7)
             pyxel.line(220, 107, 205, 128, 11)
-        if len(minheaplist) >= 15:
+        if len(outputlist) >= 15:
             self.n15.draw()
-            pyxel.text(232, 133, minheaplist[14], 7)
+            pyxel.text(232, 133, outputlist[14], 7)
             pyxel.line(220, 107, 235, 128, 11)
 
 
@@ -187,4 +232,6 @@ class App:
 
 if __name__ == '__main__':
     App()
+
+
 
