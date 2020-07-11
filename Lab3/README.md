@@ -13,34 +13,34 @@ pylint heap_priority_queue.py
 
 
 Q: What is the worst-case time complexity for push() in a naïve priority queue?
-A:O(log (n))
+A: ?
 
 Q: What is the worst-case time complexity for peek() in a naïve priority queue?
-A:O(log (n))
+A: ?
 
 Q: What is the worst-case time complexity for pop() in a naïve priority queue?
-A: O(1)
+A: ?
 
 A PriorityQueue can also be implemented using a Heap data structure (you are not required to implement this in this lab).
 
 Q: What is the worst-case time complexity for push() in a heap priority queue?
-A: O(log (n))
+A: ?
 
 Q: What is the worst-case time complexity for peek() in a heap priority queue?
-A:  O(log (n))
+A: ?
 
 Q: What is the worst-case time complexity for pop() in a heap priority queue?
-A: O(n)
+A: ?
 
 Q: Is an array sorted from smallest to largest a min-heap?
-A: yes
+A: ?
 
 Q: Is an array sorted from largest to smallest a min-heap?
-A: no
+A: ?
 
 Q: Is an array sorted from smalest to largest a max-heap?
-A: No
+A: ?
 
 Q: Is an array sorted from largest to smallest a max heap?
-A: Yes
+A: ?
 
