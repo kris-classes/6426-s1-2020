@@ -6,6 +6,8 @@ Data Structure and Algorithms Assignment ISCG 6426
 01/07/2020
 
 ############################################################
+This application implement the Breadth First search algorithm using the pyxel framework. The goal is to
+visualise the algorithm and also allow the user to change nodes using keys.
 Notes
 Dynamically space all elements.
                                APPEDIX / INFORMATION OF BREADTH FIRST SEARCH DATA STRUCTURE
@@ -20,6 +22,7 @@ Dynamically space all elements.
 1) IN THIS DOCUMENT xLeft variable represents the external spacing/margin from the left so that the nodes are equally spaced out.
 In other words calculates external horizontal spacing. e.g. if Node 1 is 250; Node 2 will be 0 and Node 3 will be 125
 2) The newXSpacing is to calculate the spacing of a child from a given parent Node
+
 ##########################################################
 Change node using keypad 1, 2 or 3
 '''
