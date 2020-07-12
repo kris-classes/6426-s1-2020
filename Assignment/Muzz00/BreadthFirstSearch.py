@@ -49,6 +49,8 @@ class Node:
     def __repr__(self):
         return self.data
 
+    def append(self, item):
+        self.nodes.append(item)
 
 # Randomly Generate Num
 rand = []
@@ -99,6 +101,14 @@ nodeSelector = n1 # Default Node
 
 
 def update():
+    a = Button(100, 100, 50, 20, 'clickme A', 2)
+    a.draw()
+    if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
+        if a.check_clicked(pyxel.mouse_x, pyxel.mouse_y):
+            a.color = (a.color + 1) % 15
+            print('Do the thing for button A')
+            n16 = Node(random.randint(0, 5))
+
     global nodeSelector
     if pyxel.btn(pyxel.KEY_1):
         nodeSelector = n1
@@ -109,8 +119,36 @@ def update():
     if pyxel.btn(pyxel.KEY_3):
         nodeSelector = n3
 
+nodeColor = random.randint(1, 15)
+txtColor = random.randint(1, 15)
+class Button:
+    """Create a button on the screen."""
+    def __init__(self, x, y, w, h, label, color):
+        # Create the splat at position (x, y)
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
+        self.label = label
+        self.color = color
+
+    def draw(self):
+        # Draw our button
+        pyxel.rect(self.x, self.y, self.w, self.h, self.color)
+        pyxel.text(self.x+5, self.y+5, self.label, self.color+1)
+
+    def check_clicked(self, mouse_x, mouse_y):
+        if self.x <= mouse_x <= self.x + self.w and self.y <= mouse_y <= self.y + self.h:
+            print('clicked!')
+            return True
+        else:
+            print('not clicked!')
+            return False
+
 
 def draw():
+    global nodeColor
+    global txtColor
     visited = []
     queue = []
     pyxel.cls(0)
@@ -124,6 +162,7 @@ def draw():
     node.xLeft = 0
     visited.append(node)
     queue.append(node)
+
     while queue:
         curNode = queue.pop(0)
 
@@ -170,9 +209,14 @@ def draw():
                 y2 = element.y
                 pyxel.line(x1, y1, x2, y2, 14)
         # DRAW CIRCLES
+
+        pyxel.mouse(True)
+        if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
+            nodeColor = random.randint(1, 15)
+            txtColor = random.randint(1, 15)
         for element in visited:
-            pyxel.circ(element.x, element.y, 6, 12)
-            pyxel.text(element.x - (len(element.data) * 1.5), element.y - 1, element.data, 2)
+            pyxel.circ(element.x, element.y, 6, nodeColor)
+            pyxel.text(element.x - (len(element.data) * 1.5), element.y - 1, element.data, txtColor)
     pyxel.text(0, 125, 'Visited Nodes', 15)
     pyxel.text(0, 135, str(visited), 15)
     #print(f'\nVisited Nodes {visited}')
