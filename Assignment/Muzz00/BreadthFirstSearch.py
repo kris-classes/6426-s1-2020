@@ -1,3 +1,30 @@
+'''
+#############################################################
+Mohamed Muzzammil P A
+1519805
+Data Structure and Algorithms Assignment ISCG 6426
+01/07/2020
+
+############################################################
+Notes
+Dynamically space all elements.
+                               APPEDIX / INFORMATION OF BREADTH FIRST SEARCH DATA STRUCTURE
+            1
+          /  \
+       /      \
+     2         3
+   / \          \
+ /    \          \
+4      5          6
+
+1) IN THIS DOCUMENT xLeft variable represents the external spacing/margin from the left so that the nodes are equally spaced out.
+In other words calculates external horizontal spacing. e.g. if Node 1 is 250; Node 2 will be 0 and Node 3 will be 125
+2) The newXSpacing is to calculate the spacing of a child from a given parent Node
+##########################################################
+Change node using keypad 1, 2 or 3
+'''
+
+
 import pyxel
 import time
 import random
@@ -153,22 +180,3 @@ pyxel.run(draw, update)
 
 
 
-# Dynamically space all elements.
-#                                APPEDIX / INFORMATION OF BREADTH FIRST SEARCH DATA STRUCTURE
-#             1
-#           /  \
-#        /      \
-#      2         3
-#    / \          \
-#  /    \          \
-# 4      5          6
-
-# 1) IN THIS DOCUMENT xLeft variable represents the external spacing/margin from the left so that the nodes are equally spaced out.
-# In other words calculates external horizontal spacing. e.g. if Node 1 is 250; Node 2 will be 0 and Node 3 will be 125
-
-# 2) The newXSpacing is to calculate the spacing of a child from a given parent Node
-
-# Mohamed Muzzammil P A
-# 1519805
-# Data Structure and Algorithms
-# 01/07/2020
