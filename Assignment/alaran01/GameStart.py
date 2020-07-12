@@ -1,3 +1,34 @@
+"""
+#########################################################
+ISCG6426 Assignment
+Nour Alaraj
+Binary tree traversal depth first search
+https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
+https://en.wikipedia.org/wiki/Tree_traversal
+#########################################################
+Controls using mouse:
+Step 1: Click 'New Tree' button to generate a new tree.
+Step 2: Select one of the tree traversals:
+    * Click "Pre-order" button for pre-order traversal.
+    * Click "In-order" button for in-order traversal.
+    * Click "Post-order" button for post-order traversal.
+Step 3: Click the nodes in the correct order depending on Step 2.
+#########################################################
+Presets (keyboard presses)
+'n':  Generate a new tree.
+'1':  Set for pre-order traversal.
+'2':  Set for in-order traversal.
+'3':  Set for post-order traversal.
+#########################################################
+Game rules:
+* Set up the game using the above instructions.
+* You have 3 lives for each game.
+* Select the nodes of the tree in the correct order until you visit all the nodes.
+* If you make 3 mistakes, the game will end and you will have to start a new game.
+* If you make less than 3 mistakes, you will win the game. But try not to make mistakes!
+#########################################################
+"""
+
 import pyxel
 import random
 
