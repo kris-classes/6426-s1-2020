@@ -10,7 +10,7 @@
 #### A real world application of Breadth First Search is that it can be used to finding the shortest path. An example of this is the GPS Navigation System/Maps. 
 ***
 ### Q4) A sentence or two on the asymptotic worst-case time and space complexity of your chosen data structure/algorithm.
-#### The worst case time complexity for Breadth First Search is O(n)	and the space complexity is O(n).
+#### The worst case time complexity for Breadth First Search is O(n^2)	and the space complexity is O(2^n).
 ***
 ##### Mohamed Muzzammil P A
 ##### 1519805
