@@ -3,6 +3,27 @@ import heapq
 from heapq import heappop, heappush
 import pyxel
 
+class Button:
+    """Create a button on the screen."""
+    def __init__(self, x, y, w, h, label, color):
+        # Create the splat at position (x, y)
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
+        self.label = label
+        self.color = color
+
+    def draw(self):
+        # Draw our button
+        pyxel.rect(self.x, self.y, self.w, self.h, self.color)
+        pyxel.text(self.x+5, self.y+5, self.label, self.color+1)
+
+    def check_clicked(self, mouse_x, mouse_y):
+        if self.x <= mouse_x <= self.x + self.w and self.y <= mouse_y <= self.y + self.h:
+            print('clicked!')
+            return True
+
 class Node:
     def __init__(self, x,y, radius=5,color=8):
         self.x = x
@@ -71,6 +92,11 @@ class App:
     def __init__(self):
         pyxel.init(256, 220, caption="HeapSort visualization")
         pyxel.mouse(True)
+        self.text_x = 70
+        self.text_y = 1
+        self.button = Button(0,0,64,15, 'clickme ', 2)
+
+
 
         #self.root = None
         #self.generate_tree()
@@ -112,14 +138,26 @@ class App:
 
 
     def update(self):
-        pass
+        if pyxel.btnp(pyxel.KEY_W):
+            self.text_y -= 1
+        if pyxel.btnp(pyxel.KEY_S):
+            self.text_y += 1
+        if pyxel.btnp(pyxel.KEY_A):
+            self.text_x -= 1
+        if pyxel.btnp(pyxel.KEY_D):
+            self.text_x += 1
+
+        if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
+            if self.button.check_clicked(pyxel.mouse_x, pyxel.mouse_y):
+                self.button.color = (self.button.color + 1) % 15
+                print('BOOM! You just clicked me :)')
 
     def draw(self):
         pyxel.cls(0)
 
 # renew btn
-        pyxel.rectb(0, 0, 64, 15, 12)
-        pyxel.text(20, 5, "Clickable", 12)
+        #pyxel.rectb(0, 0, 64, 15, 12)
+        #pyxel.text(20, 5, "Clickable", 12)
 
 
 
@@ -186,8 +224,11 @@ class App:
             pyxel.text(232, 133, heaplist[14], 7)
             pyxel.line(220, 107, 235, 128, 11)
 
-        pyxel.text(70, 1, "This is the initial list", 7)
+        pyxel.text(self.text_x, self.text_y, "This is the initial list (Click W,A,S,D)", 7)
         pyxel.text(70, 10, randomlist, 7)
+
+        self.button.draw()
+
 
 
 
