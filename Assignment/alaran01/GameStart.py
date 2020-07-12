@@ -200,12 +200,13 @@ class App:
             pyxel.play(0, 7)
             self.start_music_game_won = False
 
-        if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
+        if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON) or pyxel.btn(pyxel.KEY_N) or pyxel.btn(pyxel.KEY_1) \
+                or pyxel.btn(pyxel.KEY_2) or pyxel.btn(pyxel.KEY_3):
             x = pyxel.mouse_x
             y = pyxel.mouse_y
 
             # clicked generate tree button
-            if x < 64 and y < 15:
+            if x < 64 and y < 15 or pyxel.btn(pyxel.KEY_N):
                 self.reset()
                 self.index_to_check = -1
                 self.mode_pre_order = False
@@ -215,7 +216,7 @@ class App:
                 pyxel.play(0, 1)
 
             # clicked pre-order button
-            elif 64 <= x < 128 and y < 15:
+            elif 64 <= x < 128 and y < 15 or pyxel.btn(pyxel.KEY_1):
                 self.reset()
                 self.mode_pre_order = True
                 self.mode_post_order = False
@@ -224,7 +225,7 @@ class App:
                 pyxel.play(0, 3)
 
             # clicked in-order button
-            elif 128 <= x < 192 and y < 15:
+            elif 128 <= x < 192 and y < 15 or pyxel.btn(pyxel.KEY_2):
                 self.reset()
                 self.mode_in_order = True
                 self.mode_post_order = False
@@ -233,7 +234,7 @@ class App:
                 pyxel.play(0, 3)
 
             # clicked post-order button
-            elif 192 <= x and y < 15:
+            elif 192 <= x and y < 15 or pyxel.btn(pyxel.KEY_3):
                 self.reset()
                 self.mode_post_order = True
                 self.mode_pre_order = False
@@ -269,29 +270,29 @@ class App:
 
         # draw the navigation menu (generate new tree)
         pyxel.rectb(0, 0, 64, 15, 12)
-        pyxel.text(16, 5, "New Tree", 12)
+        pyxel.text(10, 5, "n: New Tree", 12)
 
         # draw the navigation menu (traversal options)
         if self.mode_pre_order:
             pyxel.rect(64, 0, 64, 15, 8)
-            pyxel.text(78, 5, "Pre-order", 7)
+            pyxel.text(72, 5, "1: Pre-order", 7)
         else:
             pyxel.rectb(64, 0, 64, 15, 8)
-            pyxel.text(78, 5, "Pre-order", 8)
+            pyxel.text(72, 5, "1: Pre-order", 8)
 
         if self.mode_in_order:
             pyxel.rect(128, 0, 64, 15, 8)
-            pyxel.text(143, 5, "In-order", 7)
+            pyxel.text(138, 5, "2: In-order", 7)
         else:
             pyxel.rectb(128, 0, 64, 15, 8)
-            pyxel.text(143, 5, "In-order", 8)
+            pyxel.text(138, 5, "2: In-order", 8)
 
         if self.mode_post_order:
             pyxel.rect(192, 0, 64, 15, 8)
-            pyxel.text(205, 5, "Post-order", 7)
+            pyxel.text(198, 5, "3: Post-order", 7)
         else:
             pyxel.rectb(192, 0, 64, 15, 8)
-            pyxel.text(205, 5, "Post-order", 8)
+            pyxel.text(198, 5, "3: Post-order", 8)
 
         # checking if game over
         if self.num_of_lives <= 0:
@@ -306,10 +307,11 @@ class App:
             # print instructions
             if self.mode_in_order or self.mode_post_order or self.mode_pre_order:
                 pyxel.text(5, 20, "Click on the nodes", 8)
-                pyxel.text(5, 30, "in the correct order ", 8)
+                pyxel.text(5, 30, "in the correct order.", 8)
             else:
-                pyxel.text(5, 20, "Select one of the tree", 8)
-                pyxel.text(5, 30, "traversal options above", 8)
+                pyxel.text(5, 20, "Using mouse or keypad,", 8)
+                pyxel.text(5, 30, "select one of the tree", 8)
+                pyxel.text(5, 40, "traversal options above.", 8)
 
             # draw lives remaining
             pyxel.text(190, 20, "Lives remaining: ", 8)
