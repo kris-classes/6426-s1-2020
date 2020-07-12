@@ -6,7 +6,7 @@ Data Structure and Algorithms Assignment ISCG 6426
 01/07/2020
 
 ############################################################
-This application implement the Breadth First search algorithm using the pyxel framework. The goal is to
+This application implements the Breadth First search algorithm using the pyxel framework. The goal is to
 visualise the algorithm and also allow the user to change nodes using keys.
 Notes
 Dynamically space all elements.
