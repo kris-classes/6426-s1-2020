@@ -16,13 +16,13 @@ Presets: (Num keys)
 3: Exploder
 4: Lightweight space ship
 5: Blinker
-Warning: It's possible to spawn multiple presets ontop of each other, which means they will vanish right away.
 ###############################
 Game rules/logic:
 1. Any live cell with fewer than two live neighbours dies, as if by underpopulation.
 2. Any live cell with two or three live neighbours lives on to the next generation.
 3. Any live cell with more than three live neighbours dies, as if by overpopulation.
 4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+
 More simply:
 1. any live cell with two or three neighbors lives
 2. any dead cell with three live neighbors becomes a live cell
@@ -31,7 +31,71 @@ More simply:
 import pyxel
 import time
 
-alive_cells = []
+# additional data structure
+class Set:
+    """
+    Basic implementation of a set.
+    Set must NOT contain duplicates.
+    """
+
+    def __init__(self, initial_data=[]):
+        # NOTE: I've done this for you to show how it's done.
+        # self.data MUST remain a list throughout.
+        unique_only = []
+        self.current = 0
+        for element in initial_data:
+            if element not in unique_only:
+                unique_only.append(element)
+        self.data = unique_only
+
+    def __str__(self):
+        return f'<Set __str__: {self.data}>'
+
+    def __repr__(self):
+        # Used when you type my_set into the shell.
+        return f'<Set __repr__: {self.data}>'
+
+    def __contains__(self, element):
+        # Used when you type element in my_set.
+        if element in self.data:
+            return True
+        else:
+            return False
+
+    def __iter__(self):
+        if hasattr(self.data[0], "__iter__"):
+            return self.data[0].__iter__()
+        return self.data.__iter__()
+
+
+
+    def append(self, new_item):
+        # Add an element to a set, making sure there are no duplicates.
+        # Hint: If element not in self.data, add it.
+        if new_item not in self.data:
+            self.data.append(new_item)
+
+    def add(self, new_item):
+        # Add an element to a set, making sure there are no duplicates.
+        # Hint: If element not in self.data, add it.
+        if new_item not in self.data:
+            self.data.append(new_item)
+
+    def addList(self, new_list):
+        for new_item in new_list:
+            if new_item not in self.data:
+                self.data.append(new_item)
+
+    def remove(self, element):
+        # Remove an element from a set. Raise a SetException if the item does not exist.
+        if element in self.data:
+            self.data.remove(element)
+        else:
+            raise Exception("Element not found in set")
+
+# rest of normal code
+# define stuffs
+alive_cells = Set()
 dead_cell_scans = [] # keeps track of all tested dead cells, reset every simulation tick
 test_cells = [] # test ONLY, used here so the test cells redraw
 reviving_cells = []
@@ -40,7 +104,6 @@ lastupdate = 0.0
 cellID = 0
 gameActive = False
 debug = False
-sim_frame_active = False
 sim_speed = 8
 
 # code used for anything
@@ -57,7 +120,9 @@ def getNeighbors(cell, all_living_cells, test=False, test_color=8):
         [cell.x, cell.y + 1],  # bottom
         [cell.x + 1, cell.y + 1]  # bottom right
     ]
+    count = 0
     for i in all_living_cells:
+        count+=1
         if i.id != cell.id and i.alive == True:  # not self and pixel is alive
             if [i.x, i.y] in NeighborCellGrid:  # next to
                 neighbors.append(i)
@@ -65,7 +130,6 @@ def getNeighbors(cell, all_living_cells, test=False, test_color=8):
         for i in NeighborCellGrid:
             g = simCell(i[0], i[1], color=test_color)
             test_cells.append(g)
-
     return neighbors
 
 def getNeighborCount(sim, all_sims, test=False, test_color=8):
@@ -90,12 +154,13 @@ class simCell():
     def deadPixel(self): # removes cells that are marked for deletion
         if self in alive_cells: # confirm that pixel hasn't died already
             alive_cells.remove(self)
+            dying_cells.remove(self)
 
 class App:
     def __init__(self):
         global alive_cells
         # create a glider on start
-        alive_cells = [simCell(25,25), simCell(26,26), simCell(24,27), simCell(25,27), simCell(26,27)]  # x, y, alive
+        alive_cells = Set(initial_data=[simCell(25,25), simCell(26,26), simCell(24,27), simCell(25,27), simCell(26,27)])  # x, y, alive
         # Initialize a window. Max size is 256x256 pixels.
         pyxel.init(50, 50)
         self.x = 50
@@ -145,7 +210,7 @@ class App:
             glider = [simCell(startPosX+1, startPosY), # row 1
                       simCell(startPosX+2, startPosY+1), # row 2
                       simCell(startPosX, startPosY+2), simCell(startPosX+1, startPosY+2), simCell(startPosX+2, startPosY+2)] # row 3
-            alive_cells+=glider
+            alive_cells.addList(glider)
 
         if pyxel.btnp(pyxel.KEY_2):  # small exploder
             startPosX = 30
@@ -154,7 +219,7 @@ class App:
                       simCell(startPosX, startPosY + 1), simCell(startPosX + 1, startPosY + 1), simCell(startPosX + 2, startPosY + 1),  # row 2
                       simCell(startPosX, startPosY + 2), simCell(startPosX + 2, startPosY + 2), # row 3
                       simCell(startPosX+1, startPosY + 3)] # row 4
-            alive_cells+=quadBlinker
+            alive_cells.addList(quadBlinker)
 
         if pyxel.btnp(pyxel.KEY_3):  # exploder
             startPosX = 10
@@ -164,7 +229,7 @@ class App:
                       simCell(startPosX, startPosY + 2), simCell(startPosX + 4, startPosY + 2), # row 3
                       simCell(startPosX, startPosY + 3), simCell(startPosX + 4, startPosY + 3),  # row 4
                       simCell(startPosX, startPosY+4), simCell(startPosX+2, startPosY+4), simCell(startPosX+4, startPosY+4)]  # row 5
-            alive_cells += exploder
+            alive_cells.addList(exploder)
 
         if pyxel.btnp(pyxel.KEY_4):  # lightweight space ship
             startPosX = 5
@@ -173,15 +238,15 @@ class App:
                       simCell(startPosX, startPosY + 1), simCell(startPosX + 4, startPosY + 1),  # row 2
                       simCell(startPosX + 4, startPosY + 2), # row 3
                       simCell(startPosX, startPosY + 3), simCell(startPosX + 3, startPosY + 3)]  # row 4
-            alive_cells += spaceShip
+            alive_cells.addList(spaceShip)
 
         if pyxel.btnp(pyxel.KEY_5):  # blinker
-            startPosX = 40
-            startPosY = 45
+            startPosX = 50
+            startPosY = 20
             blinker = [simCell(startPosX, startPosY),  # row 1
                       simCell(startPosX, startPosY + 1),  # row 2
                       simCell(startPosX, startPosY + 2)]  # row 3
-            alive_cells += blinker
+            alive_cells.addList(blinker)
 
     def draw(self): # main loop
         global gameActive
@@ -218,25 +283,20 @@ class App:
             global new_pixels
             global reviving_cells
             global dying_cells
-            global sim_frame_active
 
             # The following code handles all of the simulation logic. Referred to as a tick.
             if pyxel.frame_count%sim_speed == 1: # causes simulation to only update every x number of frames, otherwise it's too fast
                 lastupdate = time.time()
                 dead_cell_scans = [] # reset the dead cell scans
-                alive_cells = alive_cells + reviving_cells # add reviving simCells to the alive simCells list
+                alive_cells.addList(reviving_cells) # add reviving simCells to the alive simCells list
                 reviving_cells = [] # remove reviving simCells from the revive list
 
                 # kill/revive cells HERE. Any pixel adding or removing MUST happen outside the main for loop that checks for live cells
                 for sim in dying_cells: # remove any simCells marked for deletion in the last cycle
                     sim.deadPixel()
 
-                # revive dead cells if they have exactly 3 neighbors
-                # we do this check only around living cells, otherwise we'd have to check the whole board
-                for sim2 in alive_cells:
-                    self.reprod(sim2)  # only a check
-
                 for sim in alive_cells: # main for loop that checks living cell status
+                    self.reprod(sim)
                     pixCount = getNeighborCount(sim, alive_cells)  # get surrounding pixels
                     if pixCount < 2 or pixCount > 3: # less than two or greater than 3
                         dying_cells.append(sim)  # cell dies from either over population or under population

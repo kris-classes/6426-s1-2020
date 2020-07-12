@@ -1,0 +1,38 @@
+### 1.A paragraph documenting issues you encountered in the design or implementation of your chosen data structure/algorithm. 
+
+I faced a couple of issues while implementing my chosen data structure which was Queue.
+In the beginning i was not sure how to start the project , i tried looking for some online 
+learning material but there was nothiing online so then i looked at some stuff which our lecturer
+gave us and tried to understand how pyxel works and what are the stuffs that we can do with it.
+
+### Briefly explain the strengths and weaknesses of your data structure or algorithm
+with respect to resource consumption. Under what conditions does it perform
+the best or worst?
+
+A queue is a linear datastructure which works on the priniple of FIFO(First in First Out).
+The best example of a queue data structure is queue of customers , the customer who comes first is served first.
+A queue is open on both the ends.
+Once a new element is inserted into the Queue, all the elements inserted before 
+the new element in the queue must be removed, to remove the new element.
+The main limitation of queues in a data structure is one of the basic operations of deleting an element from it is cumbersome.
+
+
+### List a real-world application of your chosen data structure or algorithm.
+
+1. Call center phone system uses queue data structure to serve the customers calls
+2. serving requests on  single shared resource like printer, CPU task scheduling.
+3. ATM booth line
+4.Determining number of cashiers to have at a supermarket.
+
+### A sentence or two on the asymptotic worst-case time and space complexity of
+your chosen data structure/algorithm.
+
+Queues offer random access to their contents by shifting the first element off the front of the queue. 
+ Therefore the time complexity for accessing the item in the queue is O(n).
+
+Searching for a given value in the queue requires iterating until you find it.Time complexity for serching an item is O(n).
+Inserting into a queue can only happen at the back of the queue. Time complexity for inserting the item in the queue is O(1).
+Deleting from a queue happens at the front of the queue. Time complexity for, queue deletion is O(1).
+
+the avaerage time complexity of queue is Θ(n).
+The worst isO(n). But it always depends upon the number of items in the queue.

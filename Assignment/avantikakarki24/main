@@ -1,0 +1,159 @@
+"""
+ISCG6426 Assignment
+pip install --upgrade pyxel
+See https://github.com/kitao/pyxel for library
+Pyxel Discord: https://discord.gg/jNRYyXn
+More examples: https://github.com/kris-classes/pyxel-snippets
+"""
+import pyxel
+import random
+
+
+class Item:
+    def __init__(self, x, y,w,h,text):
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
+        self.text = text
+
+    def draw(self):
+        pyxel.rect(self.x,self.y,self.w,self.h,8)
+        pyxel.circ(self.x +5, self.y+self.h+1, 3, 1) # left wheel
+        pyxel.circ(self.x+self.w - 5, self.y+self.h+1,3,1) #right wheel
+
+        pyxel.text(self.x+8, self.y+3, self.text, 5)
+
+class ENQUEUE_BUTTON:
+    def __init__(self, x, y, w, h, label, color):
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
+        self.label = label
+        self.color = color
+
+
+
+    def draw(self):
+        pyxel.rect(self.x,self.y,self.w,self.h,self.color)
+        pyxel.text(self.x + 10, self.y +5, self.label, self.color +1)
+
+    def clicked_enqueue(self, mouse_x, mouse_y):
+        if self.x <= mouse_x <= self.x + self.w and self.y <= mouse_y <= self.y + self.h:
+            return True
+        else:
+            return False
+
+class DEQUEUE_BUTTON:
+    def __init__(self, x, y, w, h, label, color):
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
+        self.label = label
+        self.color = color
+
+    def draw(self):
+        pyxel.rect(self.x, self.y, self.w, self.h, self.color)
+        pyxel.text(self.x + 10, self.y + 5, self.label, self.color + 1)
+
+
+    def clicked_dequeue(self, mouse_x, mouse_y):
+        if self.x <= mouse_x <= self.x + self.w and self.y <= mouse_y <= self.y + self.h:
+            return True
+        else:
+            return False
+
+
+
+class App:
+    def __init__(self):
+        pyxel.init(250,170, caption="QUEUE DATA STRUCTURE VISUALISATION")
+        self.queue = Queue()
+        pyxel.mouse(True)
+
+
+
+        self.button1 = ENQUEUE_BUTTON(50,40,50,15, "ENQUEUE" , 7)
+        self.button2 = DEQUEUE_BUTTON(150,40,50,15, "DEQUEUE" , 7)
+
+        pyxel.run(self.update, self.draw)
+
+    def update(self):
+        if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
+            if self.button1.clicked_enqueue(pyxel.mouse_x, pyxel.mouse_y):
+                a = str(random.randint(1, 100))
+                self.queue.enqueue(a)
+                print(self.queue)
+            if self.button2.clicked_dequeue(pyxel.mouse_x, pyxel.mouse_y):
+                self.queue.dequeue()
+                print(self.queue)
+
+    def draw(self):
+        pyxel.cls(0)
+
+        pyxel.text(50, 10, "QUEUE DATA STRUCTURE", pyxel.frame_count % 10)
+        pyxel.text(140, 10, "VISUALISATION", pyxel.frame_count % 3)
+
+        items = 0
+        item_distance_x= 20
+        item_distance_y = 10
+        item_width= 30
+        item_height= 10
+
+
+        for i in self.queue.queue:
+
+            myItem = Item(40 + item_distance_x, item_distance_y +80,item_width,item_height ,i)  # 1
+            myItem.draw()
+
+            items = items + 1
+            item_distance_x = item_distance_x+ 10
+            if item_distance_x == 20:
+                item_distance_x = item_distance_x + 10
+            else:
+                item_distance_x=  item_distance_x + 10
+
+            if items > 6:
+                break
+
+        self.button1.draw()
+        self.button2.draw()
+
+class Queue(object):
+
+    def __str__(self):
+        return f'{self.queue}'
+
+    def __init__(self, maxsize =6):
+        self.queue =[]
+        self.maxsize = maxsize
+
+    def queue_isEmpty(self):
+        return self.queue == []
+
+    def queue_isFull(self):
+        if len(self.queue) == self.maxsize:
+            print("queue is full")
+
+    def enqueue(self,data):
+        if data not in self.queue:
+            self.queue.insert(0, data)
+            return True
+        return False
+
+    def dequeue(self):
+        data = self.queue[-1]
+        del self.queue[-1]
+        return data
+
+    def printQueue(self):
+        return self.queue
+
+    def size(self):
+        return len(self.queue)
+
+if __name__ == "__main__":
+    queue = Queue()
+    App()

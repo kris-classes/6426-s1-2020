@@ -7,28 +7,37 @@ This lab requires you install the following packages:
     pip install pytest pylint pyexpect
 """
 import heapq
+import random
+
+random_list = [random.randint(0, 9) for i in range(10)]
+sorted_list = [i for i in range(10)]
 
 
 class QueueException(Exception):
     """QueueException which inherits from Exception class"""
+    pass
 
 
 class QueueIsFullException(QueueException):
     """QueueIsFullException which inherits from QueueException class"""
+    pass
 
 
 class QueueIsEmptyException(QueueException):
     """QueueIsEmptyException which inherits from QueueException class"""
+    pass
 
 
 class PriorityQueue:
     """Priority queue using a binary min-heap data structure and Python's heapq module."""
 
-    def __init__(self, queue=None, maxsize=7):
+    def __init__(self, queue=None, maxsize=10):
         if queue is None:
             self.queue = []
+            self.newQueue = []
         else:
             self.queue = queue
+            self.newQueue = queue
 
         heapq.heapify(self.queue)
 
@@ -61,14 +70,16 @@ class PriorityQueue:
 
     def push(self, value):
         """ Add a value to the queue and maintain heap condition."""
+        self.value = value
         if self.maxsize <= self.size:
             raise QueueIsFullException("<Priority Queue is Full>")
-
-        self.queue.append(value)
-        heapq.heapify(self.queue)
+        print(self.queue)
+        heapq.heappush(self.queue, self.value)
 
     def peek(self):
         """Return the highest priority item, but don't remove it from the queue."""
+        print(self.queue)
+
         if self.size == 0:
             return None
 
@@ -81,3 +92,36 @@ class PriorityQueue:
             raise QueueIsEmptyException("<Priority Queue is empty>")
 
         return self.queue.pop(0)
+
+    def setList(self, value):
+        self.value = value
+        if self.value == 0:
+            return sorted_list
+        elif self.value == 1:
+            return random_list
+        else:
+            print("Error")
+            pass
+
+    def runHeapify(self):
+        if self.newQueue:
+            self.newQueue = []
+        if self.queue:
+            print(self.queue)
+            for i in self.queue:
+                self.newQueue.append(i)
+                print(self.queue)
+                print(self.newQueue)
+            heapq.heapify(self.newQueue)
+        print(self.newQueue)
+        return self.newQueue
+
+    def changeRandomList(self):
+        random_list = [random.randint(0, 9) for i in range(10)]
+        return random_list
+
+
+pq = PriorityQueue()
+pq.queue = pq.setList(1)
+print(pq.queue)
+print(pq.runHeapify())
